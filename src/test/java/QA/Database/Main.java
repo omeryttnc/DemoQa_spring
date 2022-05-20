@@ -3,6 +3,11 @@ package QA.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Main {
 
     @BeforeEach
@@ -29,6 +34,24 @@ public class Main {
         Products.addProduct(HUBS.SEED_HUB, HUBS.SEED.Kavun_Cekirdegi.name(), 20.2, 100, false, true);
         Products.addProduct(HUBS.TREE_HUB, HUBS.TREE.Cam_Agaci.name(), 20.2, 100, false, true);
     }
+
+    List<String> stringList = Arrays.asList("omer", "mahmut", "okkes", "kasim", "murtaza", "mustafa");
+    List<Integer> integerList = Arrays.asList(12, 545, 7, 989, 32, 21, 11, 214);
+
+
+    Map<String, Integer> getMap() {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("domates", 3);
+        map.put("salatalik", 43);
+        map.put("uzum", 35);
+        map.put("kiraz", 37);
+        map.put("maydanoz", 73);
+        map.put("marul", 343);
+        map.put("karpuz", 352);
+        return map;
+    }
+
+
     // yazdirmalar daha sonra manupule edebilmek icin listelere aktarilacak ama simdilik yazdirmakla yetinecegiz
 
     // tum sut urunlerini yazdir
@@ -52,7 +75,10 @@ public class Main {
     // yaptigim sistemde en az bir tane bug var o bug nedir acaba ????
     @Test
     public void ornek() {
-
+        System.out.println(getMap().keySet());
+        System.out.println(getMap().values());
+        System.out.println(Products.getProduct().get(0).getProductName());
+        System.out.println("***************************");
         // ilk urunun quantity sini aliyorum
         System.out.println(Products.getProduct().get(0).getProductQuantity());    // 100
         //ilk urunden 10 tane alip kalan tutara bakiyorum
