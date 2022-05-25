@@ -1,5 +1,6 @@
 package QA.Database;
 
+import QA.Backend.dene;
 import QA.Enums.USERINFO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -40,21 +41,7 @@ public class Main {
         Products.addProduct(HUBS.TREE_HUB, HUBS.TREE.Cam_Agaci.name(), 20.2, 100, false, true);
     }
 
-    List<String> stringList = Arrays.asList("omer", "mahmut", "okkes", "kasim", "murtaza", "mustafa");
     List<Integer> integerList = Arrays.asList(12, 545, 7, 989, 32, 21, 11, 214);
-
-
-    Map<String, Integer> getMap() {
-        Map<String, Integer> map = new HashMap<>();
-        map.put("domates", 3);
-        map.put("salatalik", 43);
-        map.put("uzum", 35);
-        map.put("kiraz", 37);
-        map.put("maydanoz", 73);
-        map.put("marul", 343);
-        map.put("karpuz", 352);
-        return map;
-    }
 
 
     // yazdirmalar daha sonra manupule edebilmek icin listelere aktarilacak ama simdilik yazdirmakla yetinecegiz
@@ -89,11 +76,74 @@ public class Main {
                 System.out.println(Products.getProduct().get(i).getProductName());
             }
         }
-
-
-//        Products.getProduct().stream().filter(t->t.getHubs().toString().equals(HUBS.DAIRY_HUB.name()))
+        Products.getProduct().stream().filter(t -> t.getHubs().toString().equals(HUBS.DAIRY_HUB.name()))
+                .forEach(t -> System.out.println(t.getProductName()));
     }
 
+    @Test
+    public void lambda_2() {
+        // icinde a harfi gecen sut urunlerini yazdir
+        Products.getProduct().stream().filter(t -> t.getHubs().toString().equals(HUBS.DAIRY_HUB.name()))
+                .filter(t -> t.getProductName().contains("a"))
+                .filter(t -> t.getProductQuantity() > 10)
+                .forEach(t -> System.out.println(t.getProductName()));
+
+
+    }
+
+    Map<String, Integer> getMap() {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("domates", 3);
+        map.put("salatalik", 43);
+        map.put("uzum", 35);
+        map.put("kiraz", 37);
+        map.put("maydanoz", 73);
+        map.put("marul", 343);
+        map.put("karpuz", 352);
+        return map;
+    }
+
+    @Test
+    public void lambda_3() {
+        List<String> list = new ArrayList<>();
+        // fiyati 50 ucuz olan urunlerin isimleri
+//       for (Integer w : getMap().values()){
+//           if (w < 50) {
+//               System.out.println(getMap().values(w));
+//           }
+//
+//       }
+
+        getMap().entrySet().stream().filter(t -> t.getValue() < 50).forEach(t -> {
+
+                    System.out.println(t.getKey());
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+        );
+
+
+        getMap().values().stream().filter(t -> t > 50).forEach(t -> System.out.println(t));
+
+    }
+
+    List<String> stringList = Arrays.asList("zomer", "mahmut", "okkes", "kasim", "zmurtaza", "mustafa");
+
+    @Test
+    public void lambda_4() {
+        // ismi en uzun olan
+
+        System.out.println(stringList.stream().map(String::length).sorted(Comparator.reverseOrder()).findFirst().get());
+        System.out.println(stringList.stream().map(String::length).max(Comparator.naturalOrder()).get());
+
+//sorted
+        System.out.println(Products.getProduct().stream().sorted(Comparator.comparing(t -> t.getProductQuantity())).limit(1));
+
+    }
 
     @Test
     public void ornek() {
