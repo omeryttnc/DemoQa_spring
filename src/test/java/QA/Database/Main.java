@@ -1,12 +1,16 @@
 package QA.Database;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebElement;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -75,16 +79,36 @@ public class Main {
     // yaptigim sistemde en az bir tane bug var o bug nedir acaba ????
     @Test
     public void ornek() {
-        System.out.println(getMap().keySet());
-        System.out.println(getMap().values());
-        System.out.println(Products.getProduct().get(0).getProductName());
-        System.out.println("***************************");
-        // ilk urunun quantity sini aliyorum
-        System.out.println(Products.getProduct().get(0).getProductQuantity());    // 100
-        //ilk urunden 10 tane alip kalan tutara bakiyorum
-        System.out.println(Products.sellItem(HUBS.VEGETABLE.Elma.name(), 10));  //90
-        //ilk urunden 2 tane alip fiyatini hesaplatiyorum
-        System.out.println(Products.total(HUBS.VEGETABLE.Elma.name(), 2));  // 50.4
+
+        Supplier<String> stringSupplier = () -> Assertions.fail();
+        Consumer<String> stringConsumer = (t)->t.toLowerCase();
+        Predicate<WebElement>webElementPredicate = (t)->t.getAttribute("value").equalsIgnoreCase("omer");
+        Function<String,Integer> stringIntegerFunction = t->t.length();
+        stringList.stream().filter(t -> t.length() > 10).findAny().orElseGet(() -> Assertions.fail());
+
+//stringList.stream().max(Comparator.naturalOrder())
+        Stream<Products> sorted = Products.getProduct().stream().sorted(Comparator.comparing(t -> t.getProductName().length()));
+
+//        for (int i = 0; i < 10; i++) {
+//
+//        System.out.println(stringList.stream().findFirst().orElseGet(()->"ss"));
+//        System.out.println(stringList.stream().findFirst().orElse("something went wrong "));
+//            System.out.println(stringList.stream().filter(t->t.length()>10).findAny().orElseThrow());
+//        }
+//        System.out.println("***************************");
+
+//
+//        Predicate<String> isim = (t)->t.toLowerCase().equals(HUBS.VEGETABLE_HUB.name());
+//        System.out.println(getMap().keySet());
+//        System.out.println(getMap().values());
+//        System.out.println(Products.getProduct().get(0).getProductName());
+//        System.out.println("***************************");
+//        // ilk urunun quantity sini aliyorum
+//        System.out.println(Products.getProduct().get(0).getProductQuantity());    // 100
+//        //ilk urunden 10 tane alip kalan tutara bakiyorum
+//        System.out.println(Products.sellItem(HUBS.VEGETABLE.Elma.name(), 10));  //90
+//        //ilk urunden 2 tane alip fiyatini hesaplatiyorum
+//        System.out.println(Products.total(HUBS.VEGETABLE.Elma.name(), 2));  // 50.4
     }
 
 }
