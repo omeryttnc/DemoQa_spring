@@ -1,5 +1,6 @@
 package QA.Database;
 
+import QA.Enums.USERINFO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -77,13 +78,30 @@ public class Main {
 
     ///////                              max - bonus           /////////////////////
     // yaptigim sistemde en az bir tane bug var o bug nedir acaba ????
+
+
+    @Test
+    public void lambda_1() {
+        // tum sut urunlerini yazdir
+        for (int i = 0; i < Products.getProduct().size(); i++) {
+            if (Products.getProduct().get(i).getHubs().toString().equals("DAIRY_HUB")) {
+
+                System.out.println(Products.getProduct().get(i).getProductName());
+            }
+        }
+
+
+//        Products.getProduct().stream().filter(t->t.getHubs().toString().equals(HUBS.DAIRY_HUB.name()))
+    }
+
+
     @Test
     public void ornek() {
 
         Supplier<String> stringSupplier = () -> Assertions.fail();
-        Consumer<String> stringConsumer = (t)->t.toLowerCase();
-        Predicate<WebElement>webElementPredicate = (t)->t.getAttribute("value").equalsIgnoreCase("omer");
-        Function<String,Integer> stringIntegerFunction = t->t.length();
+        Consumer<String> stringConsumer = (t) -> t.toLowerCase();
+        Predicate<WebElement> webElementPredicate = (t) -> t.getAttribute("value").equalsIgnoreCase("omer");
+        Function<String, Integer> stringIntegerFunction = t -> t.length();
         stringList.stream().filter(t -> t.length() > 10).findAny().orElseGet(() -> Assertions.fail());
 
 //stringList.stream().max(Comparator.naturalOrder())

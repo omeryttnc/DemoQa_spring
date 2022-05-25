@@ -56,10 +56,22 @@ ALICI_5("","","","","",""),
 
     public static class methods{
 
+
+        public static void login(USERINFO user) {
+            System.out.println(user.getEmail() + " : " + user.getPassword());
+            System.out.println(user.getToken());
+        }
+
+        public static void login2(String email,String password,String token) {
+            System.out.println(email + " : " + password);
+            System.out.println(token);
+        }
+
         public static void writeInfo(USERINFO userinfo) {
+
             System.out.println(
-                    "benim adim " + userinfo.getUserName() +"\n"+
-                    "mailim "  + userinfo.getEmail()
+                    "benim adim " + userinfo.getUserName() + "\n" +
+                            "mailim " + userinfo.getEmail()
             );
         }
 
