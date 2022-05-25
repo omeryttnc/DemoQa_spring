@@ -50,6 +50,10 @@ public class Products {
         return productQuantity;
     }
 
+
+
+
+
     private static final List<Products> allProduct = new ArrayList<>();
 
     public static void addProduct(HUBS hubs, String productName, double productPrice, int productQuantity, boolean isAvailable, boolean isOrganic) {
