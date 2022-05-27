@@ -1,10 +1,16 @@
 package QA.Database;
 
 import QA.Backend.dene;
+import QA.Enums.DeliveryCost;
 import QA.Enums.USERINFO;
+import QA.Enums.urunler;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.EnumSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.openqa.selenium.WebElement;
 
 import java.util.*;
@@ -15,6 +21,100 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public class Main {
+    public static void main(String[] args) {
+
+    }
+
+    void login(String email, String pass) {
+        System.out.println(email + " :" + pass);
+    }
+
+    void login2(USERINFO user) {
+        System.out.println(user.getEmail() + " :" + user.getPassword());
+        System.out.println(user.getToken() + " : " + user.getLat());
+    }
+
+    @Test
+    public void enum_method() {
+
+        for (USERINFO w : USERINFO.values()) {
+            System.out.println(w.getEmail());
+        }
+
+
+    }
+
+
+    @Test
+    public void sssss() {
+        String[] email = {"email1", "email21", "email41", "email31", "email51"};
+        for (int i = 0; i < email.length; i++) {
+
+            if (email[i].contains("3")) {
+                Assertions.fail();
+            }
+        }
+
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {2,3,4,5,6})
+    public void sdasde(int input) {
+        System.out.println(input*5);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"omer","ali","kasim","mahmut"})
+    public void sdsasde(String input) {
+
+        System.out.println(input);
+
+    }
+
+
+    @ParameterizedTest
+    @CsvSource({
+            "promoco5,email,pass,5",
+            "kasim,email2,pass2,56",
+            "mahmut,email3,pass3,98"
+
+    })
+    public void asdsar(String name,String email,String pass, int age) {
+        System.out.println(name +" : " + email+ " :  : " + age);
+
+
+
+    }
+
+
+
+    @ParameterizedTest
+    @EnumSource(USERINFO.class)
+    public void parametized_test(USERINFO user) {
+
+        if (user.getEmail().contains("3")) {
+            Assertions.fail();
+        }
+        System.out.println(user.getEmail());
+    }
+
+    @Test
+    public void sss() {
+        System.out.println(DeliveryCost.teslim(260));
+    }
+
+    @Test
+    public void ss() {
+        login(USERINFO.ALICI.getEmail(), USERINFO.ALICI.getPassword());
+        System.out.println("*********");
+        login2(USERINFO.ALICI);
+    }
+
+    @Test
+    public void enum_deneme() {
+        System.out.println(urunler.KARPUZ.getProductName());
+
+    }
 
     @BeforeEach
     void urunEkliyoruz() {
@@ -142,6 +242,17 @@ public class Main {
 
 //sorted
         System.out.println(Products.getProduct().stream().sorted(Comparator.comparing(t -> t.getProductQuantity())).limit(1));
+
+    }
+
+    @Test
+    public void lambda_5() {
+
+//        HUBS.
+
+
+        //sut urunlerinde organic olmayan product var mi ?
+//        Products.getProduct().stream()                .filter(t->t.getHubs().toString().equals(HUBS.DAIRY_HUB.name())).anyMatch(t->t.);
 
     }
 
