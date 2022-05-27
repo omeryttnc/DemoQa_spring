@@ -1,12 +1,12 @@
 package QA.Enums;
 
 public enum USERINFO {
-ALICI("omer","","","omer@gmail.com","",""),
-ALICI_1("","","","","",""),
-ALICI_2("","","","","",""),
-ALICI_3("","","","","",""),
-ALICI_4("","","","","",""),
-ALICI_5("","","","","",""),
+ALICI("omer","","","omer@gmail.com","sifre",""),
+ALICI_1("","","","email","sifre2",""),
+ALICI_2("","","","email2","",""),
+ALICI_3("","","","email23","",""),
+ALICI_4("","","","email24","",""),
+ALICI_5("","","","email25","",""),
 
 
 
