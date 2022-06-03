@@ -129,6 +129,7 @@ public class Login_SignUpPAGE extends BrowserTestBase {
         Select select=new Select(elements.getlogin_signUpPAGE().day_accountDateOfBirth);
         select.selectByVisibleText(day_DateOfBirth);
 
+
         select=new Select(elements.getlogin_signUpPAGE().month_accountDateOfBirth);
         select.selectByValue(month_DateOfBirth);
 

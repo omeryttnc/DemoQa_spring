@@ -3,14 +3,17 @@ package QA.Test;
 import QA.BrowserTestBase;
 import QA.Enums.LINKS;
 import QA.Enums.USERINFO;
+import QA.Jenkins.Abdullah;
 import QA.Jenkins.SmokeTest;
 import QA.utilities.ReusableMethods;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 
 public class RegisterTest extends BrowserTestBase {
     @BeforeEach
+
     public void goToLogin_SignUpPage(){
         //1. Launch browser
         //2. Navigate to url 'http://automationexercise.com'
@@ -20,13 +23,14 @@ public class RegisterTest extends BrowserTestBase {
         ReusableMethods.visitURL(LINKS.HOME);
         Assertions.assertEquals(LINKS.HOME.getLinks(), Driver.getDriver().getCurrentUrl(), "actual Link is" + Driver.getDriver().getCurrentUrl());
 
-
         //4. Click on 'Signup / Login' button
         elements.getHomePage().Signup_loginButton.click();
+
 
     }
 
         @SmokeTest
+        @Abdullah
         public void NewUserSignupisVisiableTest() {
             //5. Verify 'New User Signup!' is visible
             Assertions.assertTrue(elements.getlogin_signUpPAGE().NewUserSignupText.isDisplayed(), "'New User Signup!' is NOT visible");
