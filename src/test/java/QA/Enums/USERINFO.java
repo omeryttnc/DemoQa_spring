@@ -1,6 +1,11 @@
 package QA.Enums;
 
-public enum USERINFO {
+import QA.BrowserTestBase;
+import com.github.javafaker.Faker;
+
+public enum USERINFO{
+
+
 ALICI("omer","","","omer@gmail.com","sifre",""),
 ALICI_1("","","","email","sifre2",""),
 ALICI_2("","","","email2","",""),
@@ -8,6 +13,9 @@ ALICI_3("","","","email23","",""),
 ALICI_4("","","","email24","",""),
 ALICI_5("","","","email25","",""),
 
+
+    //https://www.automationexercise.com/   login testte kullanilmak uzere olusturuldu. Abdullah
+LOGIN_TEST("Eusebia","","","Eusebia@mailsac.com","12345","")
 
 
 

@@ -12,4 +12,7 @@ public class HomePage {
     }
     @FindBy(xpath = "(//a[@class='col-12 Sidebar_section_btn__1sp6i '])[1]")
     public WebElement Address;
+
+    @FindBy(xpath = "//a[@href='/login']")
+    public WebElement  Signup_loginButton;
 }
