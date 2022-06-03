@@ -49,7 +49,7 @@ public class BrowserTestBase implements TestExecutionListener {
 
     }
 
-    //@AfterEach
+    @AfterEach
 
     public void tearDown(TestInfo testInfo) {
         //System.out.println(new TestPlan());

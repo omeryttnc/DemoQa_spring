@@ -5,6 +5,7 @@ public class AllElements {
     private Login_SignUpPAGE login_signUpPAGE;
 
 
+    // TODO: 03/06/2022  omer beye soralim neden null kullaniyoruz.
 public HomePage getHomePage(){
     if (homePage == null) {
         homePage = new HomePage();
