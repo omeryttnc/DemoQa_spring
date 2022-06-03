@@ -98,6 +98,7 @@
 		</plugins>
 	</build>
 <profiles>
+
 	<profile>
 		<id>smoke</id>
 		<build>
@@ -112,6 +113,23 @@
 			</plugins>
 		</build>
 	</profile>
+
+	<profile>
+		<id>Abdullah</id>
+		<build>
+			<plugins>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>3.0.0-M1</version>
+					<configuration>
+						<groups>Abdullah</groups>
+					</configuration>
+				</plugin>
+			</plugins>
+		</build>
+	</profile>
+
+
 	<profile>
 		<id>regression</id>
 		<build>
