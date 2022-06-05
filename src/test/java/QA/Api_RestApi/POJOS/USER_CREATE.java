@@ -39,4 +39,11 @@ public class USER_CREATE {
         this.password = password;
     }
 
+    @Override
+    public String toString() {
+        return "USER_CREATE{" +
+                "userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
