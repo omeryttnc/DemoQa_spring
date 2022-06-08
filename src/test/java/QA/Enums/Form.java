@@ -1,7 +1,9 @@
 package QA.Enums;
 
+import QA.BrowserTestBase;
+
 public enum Form {
-    A_FORMU("ALI","KILIC","A@GMAIL.COM","12345"),
+    A_FORMU("ALIgjghjghjghjghjghjghj","KILIC","A@GMAIL.COM","12345"),
     B_FORMU("D","F","D","FF"),
     C_FORMU("DSFDSF","DFDSFl","FDSFDk","DFDFDF"),
     D_FORMU("DSFDSF","DFDSF","FDSFD@GMAIL.COM","DFDFDFDF");
@@ -34,6 +36,7 @@ public enum Form {
     public String getPassword() {
         return password;
     }
+
 
 public static class enumMethods {
     public static void enumMethod_Salary(Form form) {

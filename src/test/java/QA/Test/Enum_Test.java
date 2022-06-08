@@ -14,15 +14,17 @@ public class Enum_Test extends BrowserTestBase {
     @SmokeTest
     public void dummy() {
 //        myForm_enum(Form.A_FORMU);
-//        myForm("","","","");
-//        switchcase(Form.A_FORMU);
-//        forEach();
-//       values_valueOf();
-//       enumSet();
+       // myForm("fgndfgnfdk","gdfgfdg","fdgfdg","fgfdgfd");
+ //      switchcase(Form.A_FORMU);
+ //       forEach();
+ //      values_valueOf();
+ //      enumSet();
 //       enumMap();
 //       testtekullanim();
 //       ordinal();
 //       Form.enumMethods.enumMethod_Salary(Form.A_FORMU);
+
+  //      Form2.enumMethod.denememethod(Form2.B_FORMU);
 
     }
     //////////////////////////////////////  obje olusturarark tek parametre ile method olusturma.  ///////////////////
@@ -59,11 +61,19 @@ public class Enum_Test extends BrowserTestBase {
     //////////////////////////////////   FOR EACH /VALUES    /////////////////////////////////////////////////
 
     public void forEach(){
-        for (Form form:Form.values()
+
+        for (Form form1:Form.values()
              ) {
-            System.out.println(form.name());
+            System.out.println("form1.getFirstname() = " + form1.getFirstname());
 
         }
+
+//
+//        for (Form form:Form.values()
+//             ) {
+//            System.out.println(form.name());
+//
+//        }
 
     }
 ////////////////////////////////////  VALUES/VALUE OF   /////////////////////////////////////////////
@@ -71,11 +81,14 @@ public class Enum_Test extends BrowserTestBase {
         Form[] values = Form.values();
         System.out.println(values.length);
         System.out.println(Form.valueOf("A_FORMU"));
+
+
     }
 
     ////////////////////////  ENUMSET   ///////////////////////////////////////////////////////////
 
     public void enumSet(){
+        //EnumSet <Form> enumSet1=EnumSet.of(Form.A_FORMU,Form.B_FORMU);
         EnumSet <Form> enumSet=EnumSet.of(Form.A_FORMU,Form.B_FORMU,Form.C_FORMU);
         System.out.println(enumSet);
 
@@ -96,6 +109,7 @@ public class Enum_Test extends BrowserTestBase {
         System.out.println("Form.B_FORMU.ordinal() = " + Form.B_FORMU.ordinal());
         System.out.println("Form.C_FORMU.ordinal() = " + Form.C_FORMU.ordinal());
 
+
     }
 
 
@@ -103,7 +117,10 @@ public class Enum_Test extends BrowserTestBase {
 
     public void testtekullanim(){
         ReusableMethods.visitURL(LINKS.GOOGLE);
+        ReusableMethods.visitURL(LINKS.REGISTER);
         System.out.println(Driver.getDriver().getCurrentUrl());
+
+
         System.out.println(urunler.KARPUZ.getProductName());
         System.out.println(USERINFO.LOGIN_TEST.getEmail());
 
@@ -112,8 +129,8 @@ public class Enum_Test extends BrowserTestBase {
     }
 
     ///////////////////////////////////////////  SQL QUERY YAPARKEN    //////////////////////
-    public void testtekullanim2() throws SQLException {
-        String sql = "SELECT * FROM `attendance` ORDER BY `attendance`.`created` DESC"; //ENUM KULLANILABILIR
+    public void testtekullanim2(){
+        //String sql = "SELECT * FROM `attendance` ORDER BY `attendance`.`created` DESC"; //ENUM KULLANILABILIR
         try (
                 Connection conn = DriverManager.getConnection(
                         ConfigurationReader.getProperty("database_url"),
@@ -121,12 +138,15 @@ public class Enum_Test extends BrowserTestBase {
                         ConfigurationReader.getProperty("database_password")
                 );
                 Statement stmt = conn.createStatement();
+                //ResultSet rs = stmt.executeQuery(SQL_QUERY.SELECET_EVENT_CHECK_OUT.getSql()))
                 ResultSet rs = stmt.executeQuery(SQL_QUERY.SELECET_EVENT_CHECK_OUT.getSql()))
         {
             while (rs.next()) {
 
                 }
 
-            }
-        }}
+            } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }}
 
