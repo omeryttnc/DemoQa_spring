@@ -127,5 +127,13 @@ public class RegisterTest extends BrowserTestBase {
                 //10. Verify that 'ACCOUNT DELETED!' is visible
             }
         }
+
+
+        //enum  ile formDoldurma calismasi
+    @SmokeTest
+    public void formDoldur(){
+
+
+    }
     }
 
