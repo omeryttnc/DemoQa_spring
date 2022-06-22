@@ -15,4 +15,13 @@ public class HomePage {
 
     @FindBy(xpath = "//a[@href='/login']")
     public WebElement  Signup_loginButton;
+
+    @FindBy(xpath = "//img[@src='/static/images/home/logo.png']")
+    public WebElement  AutomationExercise;
+
+    @FindBy(xpath = "//h2[text()='Subscription']")
+    public WebElement  Subscription;
+
+    @FindBy(xpath = "(//h1)[1]")
+    public WebElement  header;
 }
