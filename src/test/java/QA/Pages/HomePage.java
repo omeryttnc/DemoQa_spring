@@ -2,6 +2,7 @@ package QA.Pages;
 
 import QA.utilities.driver.DriverFactory;
 import QA.utilities.driver.DriverFactoryImplementation;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -24,4 +25,28 @@ public class HomePage {
 
     @FindBy(xpath = "(//h1)[1]")
     public WebElement  header;
+
+    public WebElement ProductInfo(String productName, String priceViewProductAddToCart) {
+        WebElement webElement;
+        switch (priceViewProductAddToCart.toLowerCase()){
+            case  "price":
+                webElement=DriverFactoryImplementation.getInstance().getDriver().
+                        findElement(By.xpath("//p[text()='"+ productName+"']//..//h2"));
+                break;
+
+            case  "view product":
+                webElement=DriverFactoryImplementation.getInstance().getDriver().
+                        findElement(By.xpath("//p[text()='"+productName+"']//..//..//..//*[text()='View Product']"));
+                break;
+
+            case  "add to cart":
+                webElement=DriverFactoryImplementation.getInstance().getDriver().
+                        findElement(By.xpath("//p[text()='"+productName+"']//../a"));
+                break;
+
+            default:
+                throw new IllegalStateException("Unexpected value: " + priceViewProductAddToCart);
+        }
+        return webElement;
+    }
 }

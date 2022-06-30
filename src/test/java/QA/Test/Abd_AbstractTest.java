@@ -1,6 +1,8 @@
 package QA.Test;
 
+import QA.Abd_A_CommonFeatures;
 import QA.Enums.LINKS;
+import QA.Jenkins.Abdullah;
 import QA.Jenkins.RegressionTest;
 import QA.utilities.ReusableMethods;
 import org.junit.jupiter.api.Assertions;
@@ -15,6 +17,7 @@ public class Abd_AbstractTest {
 
 
     @RegressionTest
+    @Abdullah
     public void test(){
         abd_a_commonFeatures.assertAutomationExerciseExists();
         System.out.println("abd_a_commonFeatures.getSubscriptionText() = " + abd_a_commonFeatures.getSubscriptionText());
@@ -39,9 +42,6 @@ public class Abd_AbstractTest {
 
 }
 
-
-
-
 //extend yaparak Abstract kullandim obje olusturmadim.
 //Zorunlu olarak abstract methodlarim override oldu. Ayni fonksiyonlari farkli method body ile test etmek istiyorum.
 //Cunku Abstract methodlarimi  extend ettigim tum pagelerde kullanmak istiyorum.
@@ -55,6 +55,7 @@ public class Abd_AbstractTest {
     }
 
     @RegressionTest
+    @Abdullah
     public void test(){
         assertAutomationExerciseExists();
         System.out.println("abd_a_commonFeatures.getSubscriptionText() = " + getSubscriptionText());

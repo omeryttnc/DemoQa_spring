@@ -1,4 +1,4 @@
-package QA.Test;
+package QA;
 
 import QA.BrowserTestBase;
 import org.junit.jupiter.api.Assertions;

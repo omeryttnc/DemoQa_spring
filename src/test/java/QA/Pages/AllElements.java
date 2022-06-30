@@ -4,9 +4,11 @@ public class AllElements {
     private HomePage homePage;
     private Login_SignUpPAGE login_signUpPAGE;
     private ContactUsPage contactUsPage;
+    private ProductPage productPage;
+    private CartPage cartPage;
 
 
-    // TODO: 03/06/2022  omer beye soralim neden null kullaniyoruz.
+
 public HomePage getHomePage(){
     if (homePage == null) {
         homePage = new HomePage();
@@ -28,7 +30,18 @@ public HomePage getHomePage(){
         return contactUsPage;
     }
 
+public ProductPage getProductPage(){
+    if (productPage==null){
+        productPage=new ProductPage();
+    }
+    return productPage;}
 
+public CartPage getCartPage(){
+    if (cartPage==null){
+        cartPage=new CartPage();
+    }
+    return cartPage;
+}
 
 
 }

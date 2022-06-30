@@ -1,8 +1,6 @@
 package QA;
 
 import QA.Pages.AllElements;
-import QA.Test.Abd_A_CommonFeatures;
-import QA.Test.Abd_I_CommonFeatures;
 import QA.utilities.driver.DriverFactory;
 import QA.utilities.driver.DriverFactoryImplementation;
 import QA.utilities.driver.TestResultLoggerExtension;
@@ -19,7 +17,6 @@ import org.springframework.test.context.TestExecutionListener;
 import org.springframework.test.context.TestExecutionListeners;
 
 
-import java.io.File;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 

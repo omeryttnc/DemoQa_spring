@@ -1,7 +1,7 @@
-package QA.Test;
+package QA;
 
-import QA.BrowserTestBase;
 import QA.Enums.LINKS;
+import QA.Jenkins.Abdullah;
 import QA.Jenkins.RegressionTest;
 import QA.utilities.ReusableMethods;
 import org.junit.jupiter.api.Assertions;
@@ -16,6 +16,7 @@ public class Abd_InterfaceTest extends BrowserTestBase implements Abd_I_CommonFe
 
 
     @RegressionTest
+    @Abdullah
     public void test(){
         assertAutomationExerciseExists();
         System.out.println("getHeaderText() = " + getHeaderText());
