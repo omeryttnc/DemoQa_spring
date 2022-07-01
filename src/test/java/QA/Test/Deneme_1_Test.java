@@ -1,5 +1,9 @@
 package QA.Test;
 
+import QA.BrowserTestBase;
+import QA.Pages.AllElements;
+import QA.Pages.HomePage;
+import QA.Pages.Login_SignUpPAGE;
 import com.github.javafaker.Faker;
 import io.restassured.http.ContentType;
 import io.restassured.mapper.ObjectMapper;
@@ -12,7 +16,8 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class Deneme_1_Test {
+public class Deneme_1_Test extends BrowserTestBase {
+
     Response response;
     JsonPath json;
     ObjectMapper objectMapper;
@@ -41,5 +46,22 @@ public class Deneme_1_Test {
 
         json = response.jsonPath();
         System.out.println(json.getList("name"));
+    }
+
+    @Test
+    public void a() {
+
+        HomePage homePage = new HomePage();
+        Login_SignUpPAGE login_signUpPAGE = new Login_SignUpPAGE();
+
+        System.out.println("homePage.Address = " + homePage.Address);
+
+        System.out.println("login_signUpPAGE.accountCreated = " + login_signUpPAGE.accountCreated);
+
+
+        System.out.println("elements.getHomePage().Address = " + elements.getHomePage().Address);
+        System.out.println("elements.getlogin_signUpPAGE().accountCreated = " + elements.getlogin_signUpPAGE().accountCreated);
+
+
     }
 }

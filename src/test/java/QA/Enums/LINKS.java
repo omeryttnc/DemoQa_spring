@@ -4,21 +4,17 @@ public enum LINKS {
     GOOGLE("https://www.google.co.uk/"),
     REGISTER("https://www.automationexercise.com/login"),
     HOME("https://www.automationexercise.com/"),
-    PRODUCTS("https://www.automationexercise.com/products")
+    PRODUCTS("https://www.automationexercise.com/products"),
+    CONTACT_US("https://www.automationexercise.com/contact_us"),
 
 
     ;
     private String links;
 
-
     LINKS(String links) {
         this.links = links;
     }
 
-//    LINKS(String links, String links2) {
-//        this.links = links;
-//        this.links2 = links2;
-//    }
 
     public String getLinks() {
         return links;
