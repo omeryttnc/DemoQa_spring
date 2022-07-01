@@ -48,9 +48,9 @@ public class BrowserTestBase implements TestExecutionListener {
 
     }
 
-    @AfterEach
+   // @AfterEach
 
-    public void tearDown(TestInfo testInfo) {
+   // public void tearDown(TestInfo testInfo) {
         //System.out.println(new TestPlan());
 
 
@@ -62,9 +62,9 @@ public class BrowserTestBase implements TestExecutionListener {
         // }
 
 //TestIdentifier testIdentifier, TestExecutionResult testExecutionResult,
-        LOG.info("tear down method worked.. thread ID =>  " + Thread.currentThread().getId());
-        Driver.getDriver().manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
-        Driver.removeDriver();
-    }
+      //  LOG.info("tear down method worked.. thread ID =>  " + Thread.currentThread().getId());
+       // Driver.getDriver().manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+        //Driver.removeDriver();
+   // }
 
 }

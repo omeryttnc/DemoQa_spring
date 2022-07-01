@@ -7,7 +7,11 @@ public class AllElements {
     private ProductPage productPage;
     private CartPage cartPage;
 
-    
+    private ProductsPage productsPage;
+
+
+
+
     public HomePage getHomePage() {
         if (homePage == null) {
             homePage = new HomePage();
@@ -36,6 +40,12 @@ public ProductPage getProductPage(){
     }
     return productPage;}
 
+    public ProductsPage getProductsPage(){
+        if (productsPage == null) {
+            productsPage = new ProductsPage();
+        }
+        return productsPage;
+    }
 
 public CartPage getCartPage(){
     if (cartPage==null){

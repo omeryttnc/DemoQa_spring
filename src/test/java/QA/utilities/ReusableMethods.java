@@ -80,4 +80,24 @@ public class ReusableMethods {
         }
     }
 
+    public static boolean isExist(WebElement element) {
+        boolean b;
+        try {
+            b = element.isDisplayed() || !element.isDisplayed();
+        } catch (Exception var3) {
+            b = false;
+        }
+
+        return b;
+    }
+
+    public static boolean isElementVisible(WebElement webElement) {
+        try {
+            webElement.isDisplayed();
+            return true;
+        } catch (NoSuchElementException var2) {
+            return false;
+        }
+    }
+
 }

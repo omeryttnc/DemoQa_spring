@@ -17,6 +17,12 @@ public class HomePage {
     @FindBy(xpath = "//a[@href='/login']")
     public WebElement  Signup_loginButton;
 
+    @FindBy(xpath ="//a[@href='/products']")
+    public WebElement product_button;
+
+
+
+
     @FindBy(xpath = "//img[@src='/static/images/home/logo.png']")
     public WebElement  AutomationExercise;
 
@@ -28,25 +34,26 @@ public class HomePage {
 
     public WebElement ProductInfo(String productName, String priceViewProductAddToCart) {
         WebElement webElement;
-        switch (priceViewProductAddToCart.toLowerCase()){
-            case  "price":
-                webElement=DriverFactoryImplementation.getInstance().getDriver().
-                        findElement(By.xpath("//p[text()='"+ productName+"']//..//h2"));
+        switch (priceViewProductAddToCart.toLowerCase()) {
+            case "price":
+                webElement = DriverFactoryImplementation.getInstance().getDriver().
+                        findElement(By.xpath("//p[text()='" + productName + "']//..//h2"));
                 break;
 
-            case  "view product":
-                webElement=DriverFactoryImplementation.getInstance().getDriver().
-                        findElement(By.xpath("//p[text()='"+productName+"']//..//..//..//*[text()='View Product']"));
+            case "view product":
+                webElement = DriverFactoryImplementation.getInstance().getDriver().
+                        findElement(By.xpath("//p[text()='" + productName + "']//..//..//..//*[text()='View Product']"));
                 break;
 
-            case  "add to cart":
-                webElement=DriverFactoryImplementation.getInstance().getDriver().
-                        findElement(By.xpath("//p[text()='"+productName+"']//../a"));
+            case "add to cart":
+                webElement = DriverFactoryImplementation.getInstance().getDriver().
+                        findElement(By.xpath("//p[text()='" + productName + "']//../a"));
                 break;
 
             default:
                 throw new IllegalStateException("Unexpected value: " + priceViewProductAddToCart);
         }
         return webElement;
-    }
-}
+
+
+    }}

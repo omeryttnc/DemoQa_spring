@@ -27,6 +27,8 @@ public class TC01_TC02_RegisterTest extends BrowserTestBase {
         elements.getHomePage().Signup_loginButton.click();
 
 
+
+
     }
 
         @SmokeTest
