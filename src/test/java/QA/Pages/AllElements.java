@@ -7,17 +7,17 @@ public class AllElements {
     private ProductPage productPage;
     private CartPage cartPage;
 
+    
+    public HomePage getHomePage() {
+        if (homePage == null) {
+            homePage = new HomePage();
+        }
+        return homePage;
 
-
-public HomePage getHomePage(){
-    if (homePage == null) {
-        homePage = new HomePage();
     }
-    return homePage;
-}
 
 
-    public Login_SignUpPAGE getlogin_signUpPAGE(){
+    public Login_SignUpPAGE getlogin_signUpPAGE() {
         if (login_signUpPAGE == null) {
             login_signUpPAGE = new Login_SignUpPAGE();
         }
@@ -36,12 +36,14 @@ public ProductPage getProductPage(){
     }
     return productPage;}
 
+
 public CartPage getCartPage(){
     if (cartPage==null){
         cartPage=new CartPage();
     }
     return cartPage;
 }
+
 
 
 }
