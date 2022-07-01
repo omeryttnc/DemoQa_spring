@@ -27,6 +27,8 @@ public class RegisterTest extends BrowserTestBase {
         elements.getHomePage().Signup_loginButton.click();
 
 
+
+
     }
 
         @SmokeTest
