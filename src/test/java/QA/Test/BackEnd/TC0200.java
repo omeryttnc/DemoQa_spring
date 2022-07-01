@@ -16,29 +16,38 @@ public class TC0200 {
 
     @Test
     public void tc0201() {
-        Faker faker = new Faker();
-        String username = faker.name().username();
+
         response = given().
                 contentType(ContentType.JSON)
-                .body("{\"userName\":\"omer1\",\"password\":\"omerOMER1234,.$\"}")
+
+
+                .body(
+
+                        "{\"userName\": \"omer1\", \"password\":\"omerOMER1234,.$\"   }"
+
+
+                )
+
+
+//                .body("{\"userName\":\"omer1\",\"password\":\"omerOMER1234,.$\"}")
                 .post(ENDPOINTS.GET_TOKEN.getEndPoint());
 
         response.prettyPrint();
-        jsonPath = response.jsonPath();
+        //jsonPath = response.jsonPath();
         Assertions.assertEquals(response.statusCode(), 200);
-        Assertions.assertNotNull(jsonPath.getString("expires"));
-        Assertions.assertEquals(jsonPath.getString("result"), "User authorized successfully.");
+        Assertions.assertNotNull(response.jsonPath().getString("expires"));
+        Assertions.assertEquals(response.jsonPath().getString("result"), "User authorized successfully.");
+        Assertions.assertEquals(response.jsonPath().getString("status"), "Success");
     }
 
     @Test
     public void tc0203() {
-        Faker faker = new Faker();
-        String username = faker.name().username();
-        response = given().
-                contentType(ContentType.JSON)
-                .body("{\"userName\":\"omer1\",\"password\":\"ome4rOMER1234,.$\"}")
-                .post(ENDPOINTS.GET_TOKEN.getEndPoint());
-
+//
+//        response = given().
+//                contentType(ContentType.JSON)
+//                .body("{\"userName\":\"omer1\",\"password\":\"ome4rOMER1234,.$\"}")
+//                .post(ENDPOINTS.GET_TOKEN.getEndPoint());
+        response = getResponse("omer1", "ome4rOMER1234,.$");
         response.prettyPrint();
         jsonPath = response.jsonPath();
         Assertions.assertEquals(response.statusCode(), 200);
@@ -49,14 +58,25 @@ public class TC0200 {
         Assertions.assertNull(jsonPath.getString("expires"));
     }
 
+
+    Response getResponse(String userName, String passw) {
+        return given().
+                contentType(ContentType.JSON)
+                .body("{\"userName\":\" " + userName + "\",\"password\":\"" + passw + "\"}")
+                .post(ENDPOINTS.GET_TOKEN.getEndPoint());
+
+    }
+
     @Test
     public void tc0204() {
-        Faker faker = new Faker();
-        String username = faker.name().username();
-        response = given().
-                contentType(ContentType.JSON)
-                .body("{\"userName\":\"\",\"password\":\"\"}")
-                .post(ENDPOINTS.GET_TOKEN.getEndPoint());
+
+
+        response = getResponse("","");
+
+//        response = given().
+//                contentType(ContentType.JSON)
+//                .body("{\"userName\":\"\",\"password\":\"\"}")
+//                .post(ENDPOINTS.GET_TOKEN.getEndPoint());
 
         response.prettyPrint();
         jsonPath = response.jsonPath();
@@ -68,24 +88,46 @@ public class TC0200 {
     }
 
     @Test
-    public void d() {
+    public void alternative() {
+
+        ENDPOINTS.Inner_class omer1 = ENDPOINTS.method.m_login("omer1", "omerOMER1234,.$", 200);
+        Assertions.assertNotNull(omer1.getExpires());
+        Assertions.assertEquals(omer1.getResult(),"User authorized successfully.");
+        Assertions.assertEquals("Success",omer1.getStatus());
+
+
+
+
+
+
+
         // 201
-        ENDPOINTS.Inner_class register = ENDPOINTS.method.getToken("omer1", "omerOMER1234,.$",200);
-        Assertions.assertEquals(register.getStatus(),"Success");
-        Assertions.assertEquals(register.getResult(),"User authorized successfully.");
+        ENDPOINTS.Inner_class positive = omer1;
+        Assertions.assertEquals(positive.getStatus(), "Success");
+        Assertions.assertEquals(positive.getResult(), "User authorized successfully.");
 
         //203
-        ENDPOINTS.Inner_class yanlis = ENDPOINTS.method.getToken("yanlis", "omerOMER1234,.$", 200);
+        ENDPOINTS.Inner_class yanlis = ENDPOINTS.method.m_login("yanlis", "omerOMER1234,.$", 200);
         Assertions.assertNull(yanlis.getToken());
         Assertions.assertNull(yanlis.getExpires());
-        Assertions.assertEquals(yanlis.getStatus(),"Failed");
-        Assertions.assertEquals(yanlis.getResult(),"User authorization failed.");
+        Assertions.assertEquals(yanlis.getStatus(), "Failed");
+        Assertions.assertEquals(yanlis.getResult(), "User authorization failed.");
 
         //204
-        ENDPOINTS.Inner_class bos = ENDPOINTS.method.getToken("", "", 400);
-        Assertions.assertEquals(bos.getCode(),"1200");
-        Assertions.assertEquals(bos.getMessage(),"UserName and Password required.");
-
+        ENDPOINTS.Inner_class bos = ENDPOINTS.method.m_login("", "", 400);
+        Assertions.assertEquals(bos.getCode(), "1200");
+        Assertions.assertEquals(bos.getMessage(), "UserName and Password required.");
 
     }
+
+    @Test
+    public void register() {
+        Faker faker = new Faker();
+
+        var register1 = ENDPOINTS.method.m_register(faker.name().username(), "omerOMER1234,.$", 201);
+        System.out.println(register1.getUserID());
+        System.out.println(register1.getUserName());
+    }
+
+
 }
