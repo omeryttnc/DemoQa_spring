@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 
-public class RegisterTest extends BrowserTestBase {
+public class TC01_TC02_RegisterTest extends BrowserTestBase {
     @BeforeEach
 
     public void goToLogin_SignUpPage(){
@@ -25,6 +25,8 @@ public class RegisterTest extends BrowserTestBase {
 
         //4. Click on 'Signup / Login' button
         elements.getHomePage().Signup_loginButton.click();
+
+
 
 
     }
@@ -74,6 +76,7 @@ public class RegisterTest extends BrowserTestBase {
         }
 
         @SmokeTest
+        @Abdullah
         public void loginTest_Positive(){
             //5. Verify 'Login to your account' is visible
             Assertions.assertTrue(elements.getlogin_signUpPAGE().loginToYourAccountText.isDisplayed(),"Verify 'Login to your account' is visible");
@@ -96,6 +99,7 @@ public class RegisterTest extends BrowserTestBase {
         @Nested
         class NegativeLoginTest {
             @SmokeTest
+            @Abdullah
             public void incorrectEmail() {
 
                 //6. Enter incorrect email address and password
@@ -112,6 +116,7 @@ public class RegisterTest extends BrowserTestBase {
             }
 
             @SmokeTest
+            @Abdullah
             public void incorrectPassword() {
 
                 //6. Enter incorrect email address and password
@@ -128,12 +133,5 @@ public class RegisterTest extends BrowserTestBase {
             }
         }
 
-
-        //enum  ile formDoldurma calismasi
-    @SmokeTest
-    public void formDoldur(){
-
-
-    }
     }
 
