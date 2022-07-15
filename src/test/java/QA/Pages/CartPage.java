@@ -6,12 +6,22 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class CartPage {
 
     public CartPage(){PageFactory.initElements(DriverFactoryImplementation.getInstance().getDriver(), this);}
 
     @FindBy(xpath = "//td[@class='cart_quantity']/button")
     public WebElement productquantity;
+
+    @FindBy(xpath = "//a[text()='Proceed To Checkout']")
+    public WebElement proceedToCheckout;
+
+    @FindBy(xpath = "//*[contains(@id,\"product\")]//h4/a")
+    public List<WebElement> productName;
+    @FindBy(xpath = "//*[contains(@class,\"cart_price\")]/p")
+    public List<WebElement> productPrice;
 
     public WebElement ProductInfoCartPage(String productName, String priceQuantityTotal) {
         WebElement webElement;
