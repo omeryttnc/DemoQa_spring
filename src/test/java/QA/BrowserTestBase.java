@@ -48,23 +48,23 @@ public class BrowserTestBase implements TestExecutionListener {
 
     }
 
-   // @AfterEach
+    @AfterEach
 
-   // public void tearDown(TestInfo testInfo) {
-        //System.out.println(new TestPlan());
-
-
-        //if(testExecutionResult.getStatus() ==TestExecutionResult.Status.FAILED){
-
+    public void tearDown(TestInfo testInfo) {
+//        System.out.println(new TestPlan());
+//
+//
+//        if(testExecutionResult.getStatus() ==TestExecutionResult.Status.FAILED){
+//
 //        ScreenshotWatcher5 watcher = new ScreenshotWatcher5(DriverFactoryImplementation.getInstance().getDriver(), new File(System.getProperty("user.dir")) + "\\target");
 //        watcher.captureScreenshot(DriverFactoryImplementation.getInstance().getDriver(), testInfo.getTestClass().toString().substring(15) + testInfo.getDisplayName());
-
-        // }
-
+//
+//         }
+//
 //TestIdentifier testIdentifier, TestExecutionResult testExecutionResult,
-      //  LOG.info("tear down method worked.. thread ID =>  " + Thread.currentThread().getId());
-       // Driver.getDriver().manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
-        //Driver.removeDriver();
-   // }
+        LOG.info("tear down method worked.. thread ID =>  " + Thread.currentThread().getId());
+        Driver.getDriver().manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+        Driver.removeDriver();
+    }
 
 }
