@@ -59,6 +59,9 @@ public class Enum_Test extends BrowserTestBase {
     //////////////////////////////////   FOR EACH /VALUES    /////////////////////////////////////////////////
 
     public void forEach(){
+        for (Form form1:Form.values()) {
+
+        }
         for (Form form:Form.values()
              ) {
             System.out.println(form.name());
