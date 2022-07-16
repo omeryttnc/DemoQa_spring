@@ -1,6 +1,5 @@
 package QA.Pages;
 
-import QA.utilities.driver.DriverFactory;
 import QA.utilities.driver.DriverFactoryImplementation;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -47,6 +46,10 @@ public class HomePage {
 
     @FindBy(css = "button[data-dismiss]")
     public WebElement continue_shopping;
+
+    @FindBy(css = "li>a>b")
+    public WebElement user_name;
+
     @FindBy(css = "p>a[href='/view_cart']")
     public WebElement view_cart_pop_up;
 
