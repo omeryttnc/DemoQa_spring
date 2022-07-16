@@ -79,6 +79,12 @@ public class TC_22_23_24 extends BrowserTestBase {
         UserCreate newUser = createAccount();
         elements.getlogin_signUpPAGE().continueButton.click();
         ReusableMethods.wait(5);
+        System.out.println("elements.getHomePage().user_name.getText() = " + elements.getHomePage().user_name.getText());
+        System.out.println("newUser.firstName = " + newUser.firstName);
+        System.out.println("newUser.lastName = " + newUser.lastName);
+        System.out.println("newUser.fullName = " + newUser.fullName);
+
+        Assertions.assertTrue(elements.getHomePage().user_name.getText().contains(newUser.fullName));
         Assertions.assertTrue(elements.getHomePage().delete_account.isDisplayed());
         elements.getHomePage().delete_account.click();
         ReusableMethods.wait(5);
@@ -137,10 +143,11 @@ public class TC_22_23_24 extends BrowserTestBase {
         Assertions.assertEquals("India", elements.getCheckoutPage().address_country_name.get(0).getText());
 
         //street
-        Assertions.assertEquals(newUser.getStreet(),elements.getCheckoutPage().address_address_2_5.get(1).getText());
+        Assertions.assertEquals(newUser.getStreet(), elements.getCheckoutPage().address_address_2_5.get(1).getText());
 
         //city state zipcode
-        Assertions.assertEquals(newUser.getCity() + " " + newUser.getState() + " " + newUser.getZipcode(), elements.getCheckoutPage().address_city_address_state_name_address_postcode.get(0).getText());
+        Assertions.assertEquals(newUser.getCity() + " " + newUser.getState() + " " + newUser.getZipcode(),
+                elements.getCheckoutPage().address_city_address_state_name_address_postcode.get(0).getText());
 
         //phone number
         Assertions.assertEquals(newUser.getMobileNumber(), elements.getCheckoutPage().address_phone.get(0).getText());
@@ -175,12 +182,14 @@ public class TC_22_23_24 extends BrowserTestBase {
 
     }
 
-
+    /**
+     * dosyanin yolu ve ismini vererek local bilgisayardan silmek icin kullandim
+     * yol ve urun ismi ayni oldugundan degisken olarak atamadim
+     */
     public void deleteFile() {
 //    public void deleteFile(String path, String fileName) {
         String path = System.getProperty("user.home") + "\\Downloads";
         String fileName = "invoice.txt";
-
 
         File dir = new File(path);
         File[] dir_contents = dir.listFiles();
@@ -194,6 +203,12 @@ public class TC_22_23_24 extends BrowserTestBase {
 
     }
 
+
+    /**
+     * yolu ve ismi verilen dosyanin local de oldugunu gosteren bir method
+     *
+     * @return eger dosya var ise true dondurecek
+     */
     public boolean isFileDownloaded() {
 //    public boolean isFileDownloaded(String downloadPath, String fileName) {
         String downloadPath = System.getProperty("user.home") + "\\Downloads";
@@ -211,18 +226,35 @@ public class TC_22_23_24 extends BrowserTestBase {
         return flag;
     }
 
-    public void removeCart(String id) {
+    /**
+     * kartta olan urunlerin kaldirilmasi icin hazirlandi ama kullanmadim
+     *
+     * @param id        urunun id numarasi
+     * @param csrftoken getAllCookies.get("csrftoken") seklinde alinabilir
+     * @param sessionid getAllCookies.get("sessionid") seklinde alinabilir
+     */
+
+    public void removeCart(String id, String csrftoken, String sessionid) {
         Response response = given()
-                .cookie("csrftoken", "ThBTwMomSRsZcJ3KCpNh2Ltjf1eHOGqJ5ouRVelzPiVKv04XEGZC6vnSotdFOJUk")
-                .cookie("sessionid", "esemwk8q6ero8whu1xxvfrgw93ndsowx")
+                .cookie("csrftoken", csrftoken)
+                .cookie("sessionid", sessionid)
                 .contentType(ContentType.JSON)
 
                 .get("https://automationexercise.com/delete_cart/" + id);
 
-        response.prettyPrint();
+        //response.prettyPrint();
     }
 
-
+    @Test
+    public void exampleOf() {
+        Map<String, String> allCookies = getAllCookies();
+        removeCart("2",allCookies.get("csrftoken"),allCookies.get("sessionid"));
+    }
+    /**
+     * removeCart methodu icin yapildi csrftoken ve sessionid verilerini cekiyoruz
+     *
+     * @return yukari da ismi gecen verilerin cekilmesi icin map donduruyor
+     */
     public Map<String, String> getAllCookies() {
         Driver.getDriver().get("https://automationexercise.com/view_cart");
         Set<Cookie> cookies = Driver.getDriver().manage().getCookies();
@@ -237,6 +269,11 @@ public class TC_22_23_24 extends BrowserTestBase {
 
     }
 
+    /**
+     * hesap olusturup gerekli assertion lari icerde yapyor
+     *
+     * @return hesap detaylarina erisebilecegimiz kullaniciyi return ediyor
+     */
     public UserCreate createAccount() {
 
 //        map.put("password", "sad234sdfe43r4");
@@ -284,70 +321,111 @@ public class TC_22_23_24 extends BrowserTestBase {
         Assertions.assertEquals("ACCOUNT CREATED!", elements.getlogin_signUpPAGE().accountCreated.getText());
         return user;
     }
-}
 
-class UserCreate {
-    private String emailAddress;
-    private String fullName;
-    private String password;
-    private String firstName;
-    private String lastName;
-    private String street;
-    private String state;
-    private String city;
-    private String zipcode;
-    private String mobileNumber;
+    public static class UserCreate {
+        private String emailAddress;
+        private String fullName;
+        private String password;
+        private String firstName;
+        private String lastName;
+        private String street;
+        private String state;
+        private String city;
+        private String zipcode;
+        private String mobileNumber;
 
-    public UserCreate(String emailAddress, String fullName, String password, String firstName, String lastName, String street, String state, String city, String zipcode, String mobileNumber) {
-        this.emailAddress = emailAddress;
-        this.fullName = fullName;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.street = street;
-        this.state = state;
-        this.city = city;
-        this.zipcode = zipcode;
-        this.mobileNumber = mobileNumber;
+        public UserCreate(String emailAddress, String fullName, String password, String firstName, String lastName, String street, String state, String city, String zipcode, String mobileNumber) {
+            this.emailAddress = emailAddress;
+            this.fullName = fullName;
+            this.password = password;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.street = street;
+            this.state = state;
+            this.city = city;
+            this.zipcode = zipcode;
+            this.mobileNumber = mobileNumber;
+        }
+
+        public String getEmailAddress() {
+            return emailAddress;
+        }
+
+        public String getFullName() {
+            return fullName;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+
+        public String getFirstName() {
+            return firstName;
+        }
+
+        public String getLastName() {
+            return lastName;
+        }
+
+        public String getStreet() {
+            return street;
+        }
+
+        public String getState() {
+            return state;
+        }
+
+        public String getCity() {
+            return city;
+        }
+
+        public String getZipcode() {
+            return zipcode;
+        }
+
+        public String getMobileNumber() {
+            return mobileNumber;
+        }
+
+        public void setEmailAddress(String emailAddress) {
+            this.emailAddress = emailAddress;
+        }
+
+        public void setFullName(String fullName) {
+            this.fullName = fullName;
+        }
+
+        public void setPassword(String password) {
+            this.password = password;
+        }
+
+        public void setFirstName(String firstName) {
+            this.firstName = firstName;
+        }
+
+        public void setLastName(String lastName) {
+            this.lastName = lastName;
+        }
+
+        public void setStreet(String street) {
+            this.street = street;
+        }
+
+        public void setState(String state) {
+            this.state = state;
+        }
+
+        public void setCity(String city) {
+            this.city = city;
+        }
+
+        public void setZipcode(String zipcode) {
+            this.zipcode = zipcode;
+        }
+
+        public void setMobileNumber(String mobileNumber) {
+            this.mobileNumber = mobileNumber;
+        }
     }
 
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public String getZipcode() {
-        return zipcode;
-    }
-
-    public String getMobileNumber() {
-        return mobileNumber;
-    }
 }

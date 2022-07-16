@@ -27,10 +27,8 @@ public class CheckoutPage {
     @FindBy(css = ".address_phone")
     public List<WebElement> address_phone;
 
-
     @FindBy(css = ".form-control")
     public WebElement comment_box;
-
 
     @FindBy(css = ".btn.btn-default.check_out")
     public WebElement placeOrder;
