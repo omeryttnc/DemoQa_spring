@@ -14,12 +14,22 @@ public enum ENDPOINTS {
 
     ;
 
+    private String endPoint;
+
+    ENDPOINTS(String endPoint) {
+        this.endPoint = endPoint;
+    }
+
+    public String getEndPoint() {
+        return endPoint;
+    }
+
 
     public static class method {
         static Response response;
         static JsonPath jsonPath;
 
-        public static Inner_class getToken(String username, String password,int statucCode) {
+        public static Inner_class m_login(String username, String password, int statucCode) {
             Inner_class user = new Inner_class(username, password,statucCode);
             response = given().
                     contentType(ContentType.JSON)
@@ -36,7 +46,7 @@ public enum ENDPOINTS {
             return user;
         }
 
-        public static Inner_class register(String username, String password,int statucCode) {
+        public static Inner_class m_register(String username, String password, int statucCode) {
             Inner_class user = new Inner_class(username, password,statucCode);
             response = given().
                     contentType(ContentType.JSON)
@@ -49,18 +59,6 @@ public enum ENDPOINTS {
             return user;
         }
     }
-
-    private String endPoint;
-
-    ENDPOINTS(String endPoint) {
-        this.endPoint = endPoint;
-    }
-
-    public String getEndPoint() {
-        return endPoint;
-    }
-
-
     public static class Inner_class {
         private String result;
         private String status;

@@ -1,5 +1,4 @@
 package Kaufland;
-import jodd.jerry.Jerry;
 
 public class KauflandSiteParser extends AbstractSiteParser{
 
