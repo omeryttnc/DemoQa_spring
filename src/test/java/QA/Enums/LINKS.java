@@ -5,6 +5,7 @@ public enum LINKS {
     REGISTER("https://www.automationexercise.com/login"),
     HOME("https://www.automationexercise.com/"),
     CONTACT_US("https://www.automationexercise.com/contact_us"),
+    PRODUCTS("https://www.automationexercise.com/products"),
 
 
     ;

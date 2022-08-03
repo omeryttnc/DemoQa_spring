@@ -1,8 +1,12 @@
 package QA.utilities;
 
+import QA.BrowserTestBase;
 import QA.Enums.LINKS;
+import QA.Pages.AllElements;
 import QA.utilities.driver.DriverFactoryImplementation;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -10,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.sql.Driver;
 
 public class ReusableMethods {
+   static Faker faker;
 
     public static void visitURL(LINKS links) {
         DriverFactoryImplementation.getInstance().getDriver().get(links.getLinks());
@@ -80,4 +85,23 @@ public class ReusableMethods {
         }
     }
 
+    //ScrollDown by pixel
+    public static void scrollDownByPixel(int times, String pixcel) {
+        for (int i = 0; i < times; i++) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            //scrolling up
+            JavascriptExecutor jse = (JavascriptExecutor) DriverFactoryImplementation.getInstance().getDriver();
+            jse.executeScript("window.scrollBy(0," + pixcel + ")");
+        }
+
+    }
+
+    public static void clickWithJS(WebElement element) {
+        ((JavascriptExecutor) DriverFactoryImplementation.getInstance().getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+        ((JavascriptExecutor) DriverFactoryImplementation.getInstance().getDriver()).executeScript("arguments[0].click();", element);
+    }
 }
