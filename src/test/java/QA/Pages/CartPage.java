@@ -63,6 +63,14 @@ public class CartPage {
      * @param priceQuantityTotal price,quantity veya total hangi webelement araniyora o yazilir.
      * @return price,quantity veya total webelement olarak doner.
      */
+    @FindBy(xpath = "//a[text()='Proceed To Checkout']")
+    public WebElement proceedToCheckout;
+
+    @FindBy(xpath = "//*[contains(@id,\"product\")]//h4/a")
+    public List<WebElement> productName;
+    @FindBy(xpath = "//*[contains(@class,\"cart_price\")]/p")
+    public List<WebElement> productPrice;
+
     public WebElement ProductInfoCartPage(String productName, String priceQuantityTotal) {
         WebElement webElement;
         switch (priceQuantityTotal.toLowerCase()){
