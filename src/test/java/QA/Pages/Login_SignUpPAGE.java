@@ -4,6 +4,7 @@ import QA.BrowserTestBase;
 import QA.utilities.ReusableMethods;
 import QA.utilities.driver.DriverFactoryImplementation;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -19,6 +20,9 @@ public class Login_SignUpPAGE extends BrowserTestBase {
     //SIGNUP LOCATORS
     @FindBy(xpath = "//h2[text()='New User Signup!']")
     public WebElement NewUserSignupText;
+
+    @FindBy(xpath = "//p[@style]")
+    public WebElement emailAddressExist;
 
     @FindBy(xpath = "//div[@class='signup-form']//input[@name='name']")
     public WebElement signUpName;
@@ -115,14 +119,31 @@ public class Login_SignUpPAGE extends BrowserTestBase {
 
     //create account methods
 
-    public void fillAccountInfoDetails(String name, String email, String password, String day_DateOfBirth,
+    public void fillAccountInfoDetails(String gender,String name, String email, String password, String day_DateOfBirth,
                                        String month_DateOfBirth, String year_DateOfBirth, String firstName, String lastName,
-                                       String company, String address1, String address2, String state, String city, String zipcode, String mobileNumber){
+                                       String company, String address1, String address2, String state, String city, String zipcode,String country, String mobileNumber){
 
-        elements.getlogin_signUpPAGE().genderTitleButton.get(random.nextInt(2)).click();
-        ReusableMethods.cleanTextInBox(elements.getlogin_signUpPAGE().accountName);
-        elements.getlogin_signUpPAGE().accountName.sendKeys(name);
-        elements.getlogin_signUpPAGE().accountPassword.sendKeys(password);
+
+        ReusableMethods.scrollDownByPixel(1,"100");
+        switch (gender){
+            case "male":
+                elements.getlogin_signUpPAGE().genderTitleButton.get(0).click();
+                break;
+        case "female":
+                elements.getlogin_signUpPAGE().genderTitleButton.get(1).click();
+                break;
+            default:
+                elements.getlogin_signUpPAGE().genderTitleButton.get(random.nextInt(2)).click();
+        }
+
+
+
+
+
+        //ReusableMethods.cleanTextInBox(elements.getlogin_signUpPAGE().accountName);
+        //elements.getlogin_signUpPAGE().accountName.sendKeys(name);
+        ReusableMethods.scrollDownByPixel(1,"100");
+          elements.getlogin_signUpPAGE().accountPassword.sendKeys(password);
 
         String actualEmail=elements.getlogin_signUpPAGE().accountEmail.getAttribute("value");
 
@@ -135,31 +156,37 @@ public class Login_SignUpPAGE extends BrowserTestBase {
 
         select=new Select(elements.getlogin_signUpPAGE().year_accountDateOfBirth);
         select.selectByVisibleText(year_DateOfBirth);
-
+        ReusableMethods.scrollDownByPixel(1,"100");
         elements.getlogin_signUpPAGE().signUpForOurNewsletter.click();
         elements.getlogin_signUpPAGE().recieveSpecialOffers.click();
 
-
+        ReusableMethods.scrollDownByPixel(1,"100");
         elements.getlogin_signUpPAGE().firstName_AddressInfo.sendKeys(firstName);
         elements.getlogin_signUpPAGE().lastName_AddressInfo.sendKeys(lastName);
+        ReusableMethods.scrollDownByPixel(1,"100");
         elements.getlogin_signUpPAGE().company_AddressInfo.sendKeys(company);
         elements.getlogin_signUpPAGE().street_PO_Box_AddressInfo.sendKeys(address1);
+        ReusableMethods.scrollDownByPixel(1,"100");
         elements.getlogin_signUpPAGE().restOfAddress_AddressInfo.sendKeys(address2);
 
         select=new Select(elements.getlogin_signUpPAGE().country_AddressInfo);
         System.out.println("select.getOptions().size() = " + select.getOptions().size());
-        select.selectByIndex(random.nextInt(7));
+        if(country.equalsIgnoreCase("India")){ select.selectByIndex(0);
+        }else{
+        select.selectByIndex(random.nextInt(7));}
 
 
        // elements.getlogin_signUpPAGE().country_AddressInfo.sendKeys(country);
         elements.getlogin_signUpPAGE().state_AddressInfo.sendKeys(state);
+        ReusableMethods.scrollDownByPixel(1,"100");
         elements.getlogin_signUpPAGE().city_AddressInfo.sendKeys(city);
         elements.getlogin_signUpPAGE().zipCode_AddressInfo.sendKeys(zipcode);
+        ReusableMethods.scrollDownByPixel(1,"100");
         elements.getlogin_signUpPAGE().mobileNumber_AddressInfo.sendKeys(mobileNumber);
 
         Assertions.assertEquals(email,actualEmail);
-
-        elements.getlogin_signUpPAGE().createAccountButton.click();
+        ReusableMethods.clickWithJS(elements.getlogin_signUpPAGE().createAccountButton);
+        //elements.getlogin_signUpPAGE().createAccountButton.click();
 
     }
 
