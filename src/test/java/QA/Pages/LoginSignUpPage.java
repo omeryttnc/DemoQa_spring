@@ -13,8 +13,8 @@ import org.openqa.selenium.support.ui.Select;
 import java.sql.Driver;
 import java.util.List;
 
-public class Login_SignUpPAGE extends BrowserTestBase {
-    public Login_SignUpPAGE() {PageFactory.initElements(DriverFactoryImplementation.getInstance().getDriver(),this);
+public class LoginSignUpPage extends BrowserTestBase {
+    public LoginSignUpPage() {PageFactory.initElements(DriverFactoryImplementation.getInstance().getDriver(),this);
     }
 
     //SIGNUP LOCATORS

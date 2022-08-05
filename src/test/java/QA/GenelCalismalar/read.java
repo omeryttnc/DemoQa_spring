@@ -1,4 +1,4 @@
-package QA.Test;
+package QA.GenelCalismalar;
 
 import QA.utilities.ReadTxt;
 import org.junit.jupiter.api.Assertions;

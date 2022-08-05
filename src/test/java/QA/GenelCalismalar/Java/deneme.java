@@ -1,4 +1,4 @@
-package QA.Java;
+package QA.GenelCalismalar.Java;
 
 import QA.BrowserTestBase;
 import QA.Enums.LINKS;
@@ -6,7 +6,6 @@ import QA.Enums.USERINFO;
 import QA.Jenkins.RegressionTest;
 import QA.Jenkins.SmokeTest;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
 public class deneme extends BrowserTestBase {
     @SmokeTest

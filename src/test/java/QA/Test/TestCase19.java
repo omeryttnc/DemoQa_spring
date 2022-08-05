@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class TestCase_19 extends BrowserTestBase {
+public class TestCase19 extends BrowserTestBase {
 /*1. Launch browser
 2. Navigate to url 'http://automationexercise.com'
 3. Click on 'Products' button
