@@ -6,10 +6,13 @@ import QA.utilities.driver.DriverFactoryImplementation;
 import QA.utilities.driver.TestResultLoggerExtension;
 import com.github.javafaker.Faker;
 
+import io.qameta.allure.Allure;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.interactions.Actions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +21,7 @@ import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.event.annotation.BeforeTestExecution;
 
 
+import java.io.ByteArrayInputStream;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -72,6 +76,12 @@ public class BrowserTestBase implements TestExecutionListener {
 //         }
 //
 //TestIdentifier testIdentifier, TestExecutionResult testExecutionResult,
+
+        Allure.addAttachment("name for attachment",
+                new ByteArrayInputStream(((TakesScreenshot) DriverFactoryImplementation.getInstance().getDriver()).getScreenshotAs(OutputType.BYTES)));
+
+
+
         LOG.info("tear down method worked.. thread ID =>  " + Thread.currentThread().getId());
         Driver.getDriver().manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         Driver.removeDriver();

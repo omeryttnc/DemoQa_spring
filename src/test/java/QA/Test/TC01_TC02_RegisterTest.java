@@ -6,10 +6,7 @@ import QA.Enums.USERINFO;
 import QA.Jenkins.Abdullah;
 import QA.Jenkins.SmokeTest;
 import QA.utilities.ReusableMethods;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.*;
 
 public class TC01_TC02_RegisterTest extends BrowserTestBase {
     @BeforeEach
@@ -54,9 +51,9 @@ public class TC01_TC02_RegisterTest extends BrowserTestBase {
             //13. Click 'Create Account button'
             //14. Verify that 'ACCOUNT CREATED!' is visible
 
-            elements.getlogin_signUpPAGE().fillAccountInfoDetails(name,email,"12345","10","5",
+            elements.getlogin_signUpPAGE().fillAccountInfoDetails(" ",name,email,"12345","10","5",
                     "1985",name,faker.name().lastName(),"My Company","Somewhere streeet","6",
-                    "California","Los Angeles","95100","0684111111");
+                    "California","Los Angeles","95100"," ","0684111111");
 
             Assertions.assertTrue(elements.getlogin_signUpPAGE().accountCreated.isDisplayed(),"Verify that 'ACCOUNT CREATED!' is visible");
             Assertions.assertEquals("ACCOUNT CREATED!",elements.getlogin_signUpPAGE().accountCreated.getText(),"Verify that 'ACCOUNT CREATED!' is visible");
@@ -67,15 +64,21 @@ public class TC01_TC02_RegisterTest extends BrowserTestBase {
             Assertions.assertTrue(elements.getlogin_signUpPAGE().loggedInAs.isDisplayed(),"Verify that 'Logged in as username' is visible");
             Assertions.assertEquals("Logged in as "+name,elements.getlogin_signUpPAGE().loggedInAs.getText(),"Verify that 'Logged in as username' is visible");
 
-            //17. Click 'Delete Account' button
-            //18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
+                }
 
-            elements.getlogin_signUpPAGE().deleteAccount.click();
+    @Test
+    void DeleteAccount() {
+        NewUserSignupisVisiableTest();
+        //17. Click 'Delete Account' button
+        //18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
 
-            Assertions.assertTrue(elements.getlogin_signUpPAGE().accountDeletedPageBody.getText().contains("ACCOUNT DELETED!"),"Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button");
-        }
+        elements.getlogin_signUpPAGE().deleteAccount.click();
 
-        @SmokeTest
+        Assertions.assertTrue(elements.getlogin_signUpPAGE().accountDeletedPageBody.getText().contains("ACCOUNT DELETED!"),"Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button");
+
+    }
+
+    @SmokeTest
         @Abdullah
         public void loginTest_Positive(){
             //5. Verify 'Login to your account' is visible

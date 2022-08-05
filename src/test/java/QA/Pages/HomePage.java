@@ -23,6 +23,12 @@ public class HomePage {
     public WebElement product_button;
 
 
+    @FindBy(xpath = "//a[@href='/logout']")
+    public WebElement  LogoutButton;
+
+    @FindBy(xpath = "//a[@href='/']")
+    public WebElement  HomeButton;
+
     @FindBy(xpath = "//img[@src='/static/images/home/logo.png']")
     public WebElement AutomationExercise;
 
