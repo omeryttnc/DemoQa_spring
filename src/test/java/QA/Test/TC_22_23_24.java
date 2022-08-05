@@ -2,12 +2,12 @@ package QA.Test;
 
 import QA.BrowserTestBase;
 import QA.Jenkins.Omer;
+import QA.Jenkins.SmokeTest;
 import QA.utilities.ReusableMethods;
 import io.qameta.allure.*;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Keys;
 
@@ -29,7 +29,7 @@ public class TC_22_23_24 extends BrowserTestBase {
     @Severity(value = SeverityLevel.BLOCKER)
     @Description(value = "user able to delete account")
     @Owner(value = "OMER")
-    @Test
+    @SmokeTest
     public void tc_22() {
         /*
 1. Launch browser
@@ -73,7 +73,7 @@ public class TC_22_23_24 extends BrowserTestBase {
     @Severity(value = SeverityLevel.BLOCKER)
     @Description(value = "user able to delete account")
     @Owner(value = "OMER")
-    @Test
+    @SmokeTest
     public void tc_23() {
         /*
 1. Launch browser
@@ -109,13 +109,13 @@ public class TC_22_23_24 extends BrowserTestBase {
 
 
     @Omer
+    @SmokeTest
     @Epic("Purchase")
     @Feature("Puchase")
     @Story("TC_23")
     @Severity(value = SeverityLevel.BLOCKER)
     @Description(value = "user able to download invoice")
     @Owner(value = "OMER")
-    @Test
     public void tc_24() {
         /*
 1. Launch browser
