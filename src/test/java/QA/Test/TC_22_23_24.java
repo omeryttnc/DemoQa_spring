@@ -1,7 +1,9 @@
 package QA.Test;
 
 import QA.BrowserTestBase;
+import QA.Jenkins.Omer;
 import QA.utilities.ReusableMethods;
+import io.qameta.allure.*;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
@@ -20,6 +22,13 @@ import static io.restassured.RestAssured.given;
 public class TC_22_23_24 extends BrowserTestBase {
     Map<String, String> map = new HashMap<>();
 
+    @Omer
+    @Epic("Purchase")
+    @Feature("Cart Page")
+    @Story("TC_22")
+    @Severity(value = SeverityLevel.BLOCKER)
+    @Description(value = "user able to delete account")
+    @Owner(value = "OMER")
     @Test
     public void tc_22() {
         /*
@@ -57,6 +66,13 @@ public class TC_22_23_24 extends BrowserTestBase {
 
     }
 
+    @Omer
+    @Epic("Purchase")
+    @Feature("Delete user")
+    @Story("TC_23")
+    @Severity(value = SeverityLevel.BLOCKER)
+    @Description(value = "user able to delete account")
+    @Owner(value = "OMER")
     @Test
     public void tc_23() {
         /*
@@ -92,6 +108,13 @@ public class TC_22_23_24 extends BrowserTestBase {
     }
 
 
+    @Omer
+    @Epic("Purchase")
+    @Feature("Puchase")
+    @Story("TC_23")
+    @Severity(value = SeverityLevel.BLOCKER)
+    @Description(value = "user able to download invoice")
+    @Owner(value = "OMER")
     @Test
     public void tc_24() {
         /*
@@ -245,11 +268,8 @@ public class TC_22_23_24 extends BrowserTestBase {
         //response.prettyPrint();
     }
 
-    @Test
-    public void exampleOf() {
-        Map<String, String> allCookies = getAllCookies();
-        removeCart("2",allCookies.get("csrftoken"),allCookies.get("sessionid"));
-    }
+
+
     /**
      * removeCart methodu icin yapildi csrftoken ve sessionid verilerini cekiyoruz
      *
