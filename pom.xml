@@ -98,9 +98,17 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+		<!-- https://mvnrepository.com/artifact/com.sangupta/jerry -->
+		<dependency>
+			<groupId>com.sangupta</groupId>
+			<artifactId>jerry</artifactId>
+			<version>0.2.0</version>
+		</dependency>
 
 
-    </dependencies>
+
+
+	</dependencies>
 
 	<build>
 		<plugins>

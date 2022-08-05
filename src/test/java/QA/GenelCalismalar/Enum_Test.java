@@ -62,7 +62,14 @@ public class Enum_Test extends BrowserTestBase {
 
     public void forEach(){
 
+        for (Form form1:Form.values()) {
+
+        }
+        for (Form form:Form.values())
+
+
         for (Form form1:Form.values()
+
              ) {
             System.out.println("form1.getFirstname() = " + form1.getFirstname());
 

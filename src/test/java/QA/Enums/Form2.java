@@ -1,6 +1,12 @@
 package QA.Enums;
 
-public enum Form2 {
+/*public enum Form2 {
+    ;
+
+    private String name;
+    private String Lastname;
+    private String password;
+
     A_FORMU("asdasd","asdasd","adass"),
     B_FORMU("assa","sad","dsdsGGGGGGGGGGGG"),
     C_FORMU("sds","sds","dsds");
@@ -8,6 +14,7 @@ public enum Form2 {
     private final String name;
     private final String Lastname;
     private final String password;
+
 
     Form2(String name, String lastname, String password) {
         this.name = name;
@@ -36,6 +43,8 @@ public enum Form2 {
                 '}';
     }
 
+
+
     public static class enumMethod{
         public static void denememethod(Form2 form2){
             switch (form2){
@@ -48,4 +57,5 @@ public enum Form2 {
         }
 
     }
-}
+
+}*/
