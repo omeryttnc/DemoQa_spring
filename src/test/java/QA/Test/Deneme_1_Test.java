@@ -1,17 +1,22 @@
 package QA.Test;
 
 import QA.BrowserTestBase;
+import QA.Enums.LINKS;
 import QA.Pages.AllElements;
 import QA.Pages.HomePage;
 import QA.Pages.Login_SignUpPAGE;
+import QA.utilities.ReusableMethods;
 import com.github.javafaker.Faker;
 import io.restassured.http.ContentType;
 import io.restassured.mapper.ObjectMapper;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -21,12 +26,23 @@ public class Deneme_1_Test extends BrowserTestBase {
     Response response;
     JsonPath json;
     ObjectMapper objectMapper;
-    Map<String,String>map = new HashMap<>();
+    Map<String, String> map = new HashMap<>();
     Faker faker = new Faker();
 
     @Test
+    public void sdasd() {
+        ReusableMethods.visitURL(LINKS.PRODUCTS);
+        // all_brands_button.forEach(t -> allBrandsList.add(t.getText()));
+        // System.out.println(allBrandsList);
+        List<WebElement> element = Driver.getDriver().findElements(By.xpath("//ul[@class='nav nav-pills nav-stacked']/li/a"));
+        for (int i = 0; i < element.size(); i++) {
+            System.out.println(element.get(i).getText().split("\n")[1]);
+        }
+    }
+
+    @Test
     public void createUser() {
-        map.put("name", faker.name().fullName() );
+        map.put("name", faker.name().fullName());
         response = given().
                 contentType(ContentType.JSON)
                 .body(map)

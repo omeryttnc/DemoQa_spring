@@ -1,6 +1,5 @@
 package QA.Database;
 
-
 import QA.Enums.DeliveryCost;
 import QA.Enums.USERINFO;
 import QA.Enums.urunler;

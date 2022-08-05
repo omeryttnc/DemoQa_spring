@@ -6,11 +6,11 @@ public class AllElements {
     private ContactUsPage contactUsPage;
     private ProductPage productPage;
     private CartPage cartPage;
-
     private ProductsPage productsPage;
-
-
-
+    private CheckoutPage checkoutPage;
+    private PaymentPage paymentPage;
+    private ContactUsFormPage contactUsFormPage;
+    private PlaceOrderLoginBeforeCheckoutPage placeOrderLoginBeforeCheckoutPage;
 
     public HomePage getHomePage() {
         if (homePage == null) {
@@ -27,32 +27,63 @@ public class AllElements {
         }
         return login_signUpPAGE;
     }
-    public ContactUsPage getContactUsPage(){
+
+    public ContactUsPage getContactUsPage() {
         if (contactUsPage == null) {
             contactUsPage = new ContactUsPage();
         }
         return contactUsPage;
     }
 
-public ProductPage getProductPage(){
-    if (productPage==null){
-        productPage=new ProductPage();
+    public ProductPage getProductPage() {
+        if (productPage == null) {
+            productPage = new ProductPage();
+        }
+        return productPage;
     }
-    return productPage;}
 
-    public ProductsPage getProductsPage(){
+    public ProductsPage getProductsPage() {
         if (productsPage == null) {
             productsPage = new ProductsPage();
         }
         return productsPage;
     }
 
-public CartPage getCartPage(){
-    if (cartPage==null){
-        cartPage=new CartPage();
+    public CartPage getCartPage() {
+        if (cartPage == null) {
+            cartPage = new CartPage();
+        }
+        return cartPage;
     }
-    return cartPage;
-}
+
+    public CheckoutPage getCheckoutPage() {
+        if (checkoutPage == null) {
+            checkoutPage = new CheckoutPage();
+        }
+        return checkoutPage;
+    }
+
+    public PaymentPage getPaymentPage() {
+        if (paymentPage == null) {
+            paymentPage = new PaymentPage();
+        }
+        return paymentPage;
+    }
+
+     public ContactUsFormPage getContactUsFormPage() {
+        if (contactUsFormPage == null) {
+            contactUsFormPage = new ContactUsFormPage();
+        }
+        return contactUsFormPage;
+    }
+
+
+  public PlaceOrderLoginBeforeCheckoutPage getAddProductsInCartPage() {
+        if (placeOrderLoginBeforeCheckoutPage == null) {
+            placeOrderLoginBeforeCheckoutPage = new PlaceOrderLoginBeforeCheckoutPage();
+        }
+        return placeOrderLoginBeforeCheckoutPage;
+    }
 
 
 
