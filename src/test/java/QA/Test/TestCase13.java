@@ -9,7 +9,7 @@ import QA.utilities.driver.DriverFactoryImplementation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 
-public class TC013_AddItemsToCartTest extends BrowserTestBase {
+public class TestCase13 extends BrowserTestBase {
 
     @BeforeEach
     public void visitURL(){

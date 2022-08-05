@@ -4,13 +4,10 @@ import QA.BrowserTestBase;
 import QA.Enums.USERINFO;
 import QA.utilities.ReusableMethods;
 import QA.utilities.driver.DriverFactoryImplementation;
-import com.google.common.base.Verify;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.sql.SQLOutput;
-
-public class TC015_PlaceOrderTest extends BrowserTestBase {
+public class TestCase15 extends BrowserTestBase {
 //    Test Case 15: Place Order: Register before Checkout
 //1.
 
@@ -44,7 +41,7 @@ public class TC015_PlaceOrderTest extends BrowserTestBase {
         String zipcode="95100";
         String mobileNumber="0684111111";
         String expectedAddress= " Mr.";
-        TC01_TC02_RegisterTest register=new TC01_TC02_RegisterTest();
+        TestCase1_2 register=new TestCase1_2();
         register.goToLogin_SignUpPage();
 
 

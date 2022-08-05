@@ -8,7 +8,7 @@ import com.google.common.base.Verify;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class TC012_AddProductsInCart extends BrowserTestBase {
+public class TestCase12 extends BrowserTestBase {
 //    Test Case 15: Place Order: Register before Checkout
 //1.
 

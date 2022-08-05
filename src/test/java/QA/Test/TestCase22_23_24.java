@@ -19,7 +19,7 @@ import java.util.Set;
 
 import static io.restassured.RestAssured.given;
 
-public class TC_22_23_24 extends BrowserTestBase {
+public class TestCase22_23_24 extends BrowserTestBase {
     Map<String, String> map = new HashMap<>();
 
     @Omer

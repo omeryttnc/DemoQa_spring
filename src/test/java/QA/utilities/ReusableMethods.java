@@ -97,6 +97,8 @@ public class ReusableMethods {
             JavascriptExecutor jse = (JavascriptExecutor) DriverFactoryImplementation.getInstance().getDriver();
             jse.executeScript("window.scrollBy(0," + pixcel + ")");
         }
+    }
+
     public static boolean isExist(WebElement element) {
         boolean b;
         try {
@@ -117,9 +119,9 @@ public class ReusableMethods {
         }
     }
 
-}
 
-    }
+
+
 
     public static void clickWithJS(WebElement element) {
         ((JavascriptExecutor) DriverFactoryImplementation.getInstance().getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);

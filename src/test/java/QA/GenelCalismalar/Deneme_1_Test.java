@@ -1,10 +1,9 @@
-package QA.Test;
+package QA.GenelCalismalar;
 
 import QA.BrowserTestBase;
 import QA.Enums.LINKS;
-import QA.Pages.AllElements;
 import QA.Pages.HomePage;
-import QA.Pages.Login_SignUpPAGE;
+import QA.Pages.LoginSignUpPage;
 import QA.utilities.ReusableMethods;
 import com.github.javafaker.Faker;
 import io.restassured.http.ContentType;
@@ -68,7 +67,7 @@ public class Deneme_1_Test extends BrowserTestBase {
     public void a() {
 
         HomePage homePage = new HomePage();
-        Login_SignUpPAGE login_signUpPAGE = new Login_SignUpPAGE();
+        LoginSignUpPage login_signUpPAGE = new LoginSignUpPage();
 
         System.out.println("homePage.Address = " + homePage.Address);
 

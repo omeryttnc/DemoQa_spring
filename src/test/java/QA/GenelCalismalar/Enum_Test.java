@@ -1,4 +1,4 @@
-package QA.Test;
+package QA.GenelCalismalar;
 
 import QA.BrowserTestBase;
 import QA.Enums.*;

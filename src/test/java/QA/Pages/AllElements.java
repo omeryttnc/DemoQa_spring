@@ -2,7 +2,7 @@ package QA.Pages;
 
 public class AllElements {
     private HomePage homePage;
-    private Login_SignUpPAGE login_signUpPAGE;
+    private LoginSignUpPage login_signUpPAGE;
     private ContactUsPage contactUsPage;
     private ProductPage productPage;
     private CartPage cartPage;
@@ -19,9 +19,9 @@ public class AllElements {
     }
 
 
-    public Login_SignUpPAGE getlogin_signUpPAGE() {
+    public LoginSignUpPage getlogin_signUpPAGE() {
         if (login_signUpPAGE == null) {
-            login_signUpPAGE = new Login_SignUpPAGE();
+            login_signUpPAGE = new LoginSignUpPage();
         }
         return login_signUpPAGE;
     }

@@ -1,4 +1,4 @@
-package QA.Java;
+package QA.GenelCalismalar.Java;
 
 import java.util.ArrayList;
 import java.util.List;

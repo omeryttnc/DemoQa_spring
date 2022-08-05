@@ -1,4 +1,4 @@
-package QA.Test;
+package QA.GenelCalismalar;
 
 import QA.Abd_A_CommonFeatures;
 import QA.Enums.LINKS;

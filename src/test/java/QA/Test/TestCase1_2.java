@@ -4,11 +4,12 @@ import QA.BrowserTestBase;
 import QA.Enums.LINKS;
 import QA.Enums.USERINFO;
 import QA.Jenkins.Abdullah;
+import QA.Jenkins.RegressionTest;
 import QA.Jenkins.SmokeTest;
 import QA.utilities.ReusableMethods;
 import org.junit.jupiter.api.*;
 
-public class TC01_TC02_RegisterTest extends BrowserTestBase {
+public class TestCase1_2 extends BrowserTestBase {
     @BeforeEach
 
     public void goToLogin_SignUpPage(){
@@ -66,7 +67,7 @@ public class TC01_TC02_RegisterTest extends BrowserTestBase {
 
                 }
 
-    @Test
+    @RegressionTest
     void DeleteAccount() {
         NewUserSignupisVisiableTest();
         //17. Click 'Delete Account' button
@@ -78,7 +79,7 @@ public class TC01_TC02_RegisterTest extends BrowserTestBase {
 
     }
 
-    @SmokeTest
+        @SmokeTest
         @Abdullah
         public void loginTest_Positive(){
             //5. Verify 'Login to your account' is visible

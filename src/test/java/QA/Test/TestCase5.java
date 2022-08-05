@@ -8,7 +8,7 @@ import QA.utilities.ReusableMethods;
 import org.junit.jupiter.api.Assertions;
 
 
-public class TC05_RegisterUserWithoutExistingEmailTest extends BrowserTestBase {
+public class TestCase5 extends BrowserTestBase {
 
 
 //Test Case 5: Register User with existing email
