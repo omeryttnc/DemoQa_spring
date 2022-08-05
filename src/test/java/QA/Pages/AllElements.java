@@ -9,6 +9,8 @@ public class AllElements {
     private ProductsPage productsPage;
     private CheckoutPage checkoutPage;
     private PaymentPage paymentPage;
+    private ContactUsFormPage contactUsFormPage;
+    private PlaceOrderLoginBeforeCheckoutPage placeOrderLoginBeforeCheckoutPage;
 
     public HomePage getHomePage() {
         if (homePage == null) {
@@ -61,11 +63,29 @@ public class AllElements {
         return checkoutPage;
     }
 
-    public PaymentPage getPaymentPage(){
-        if(paymentPage==null){
+    public PaymentPage getPaymentPage() {
+        if (paymentPage == null) {
             paymentPage = new PaymentPage();
         }
         return paymentPage;
     }
+
+     public ContactUsFormPage getContactUsFormPage() {
+        if (contactUsFormPage == null) {
+            contactUsFormPage = new ContactUsFormPage();
+        }
+        return contactUsFormPage;
+    }
+
+
+  public PlaceOrderLoginBeforeCheckoutPage getAddProductsInCartPage() {
+        if (placeOrderLoginBeforeCheckoutPage == null) {
+            placeOrderLoginBeforeCheckoutPage = new PlaceOrderLoginBeforeCheckoutPage();
+        }
+        return placeOrderLoginBeforeCheckoutPage;
+    }
+
+
+
 }
 

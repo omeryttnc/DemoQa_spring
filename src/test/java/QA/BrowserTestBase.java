@@ -18,6 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.test.context.TestExecutionListener;
 import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.event.annotation.BeforeTestExecution;
 
 
 import java.io.ByteArrayInputStream;
@@ -38,10 +39,11 @@ public class BrowserTestBase implements TestExecutionListener {
     private static final String FILE_EXTENSION = ".png";
     protected AllElements elements = new AllElements();
     protected Random random = new Random();
-//     @BeforeTestExecution
-//    static void deleteScreeenshot(){
-//     new DeleteFile().deleteFile(FILE_DIRECTORY, FILE_EXTENSION);
-//     }
+   /*  @BeforeTestExecution
+    static void deleteScreeenshot(){
+         new DeleteFile().deleteFile(FILE_DIRECTORY, FILE_EXTENSION);
+     }*/
+
 
     @BeforeEach
     public void setup() {
@@ -55,11 +57,19 @@ public class BrowserTestBase implements TestExecutionListener {
     @AfterEach
 
     public void tearDown(TestInfo testInfo) {
+
+        //System.out.println(new TestPlan());
+
+
+        //if(testExecutionResult.getStatus() ==TestExecutionResult.Status.FAILED){
+
+
 //        System.out.println(new TestPlan());
 //
 //
 //        if(testExecutionResult.getStatus() ==TestExecutionResult.Status.FAILED){
 //
+
 //        ScreenshotWatcher5 watcher = new ScreenshotWatcher5(DriverFactoryImplementation.getInstance().getDriver(), new File(System.getProperty("user.dir")) + "\\target");
 //        watcher.captureScreenshot(DriverFactoryImplementation.getInstance().getDriver(), testInfo.getTestClass().toString().substring(15) + testInfo.getDisplayName());
 //
