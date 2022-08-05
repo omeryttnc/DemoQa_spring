@@ -15,8 +15,8 @@ public class CartPage {
     @FindBy(xpath = "//td[@class='cart_quantity']/button")
     public WebElement productquantity;
 
-    @FindBy(xpath = "//a[text()='Proceed To Checkout']")
-    public WebElement proceedToCheckout;
+//    @FindBy(xpath = "//a[text()='Proceed To Checkout']")
+//    public WebElement proceedToCheckout;
 
     @FindBy(xpath = "//ul[contains(@class,'address item box')]/li")
     public List<WebElement> adressInfo;
