@@ -2,6 +2,7 @@ package QA.Test;
 
 import QA.BrowserTestBase;
 import QA.Enums.LINKS;
+import QA.Jenkins.SmokeTest;
 import QA.utilities.ReusableMethods;
 import QA.utilities.driver.DriverFactoryImplementation;
 import com.google.common.base.Verify;
@@ -14,7 +15,7 @@ public class TestCase12 extends BrowserTestBase {
 
 
 
-    @Test
+    @SmokeTest
     void addProductInCart() {
 
         ReusableMethods.visitURL(LINKS.HOME);

@@ -2,6 +2,7 @@ package QA.Test;
 
 import QA.BrowserTestBase;
 import QA.Enums.LINKS;
+import QA.Jenkins.RegressionTest;
 import QA.utilities.ReusableMethods;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,7 +33,7 @@ public class TestCase19 extends BrowserTestBase {
         Assertions.assertEquals(LINKS.HOME.getLinks(), currentUrl, "the link is" + LINKS.HOME.getLinks());
     }
 
-    @Test
+    @RegressionTest
     public void goToProductPage(){
         elements.getHomePage().product_button.click();
         ReusableMethods.isElementVisible(elements.getProductsPage().brand_header);

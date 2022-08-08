@@ -7,6 +7,7 @@ import QA.Jenkins.Abdullah;
 import QA.Jenkins.RegressionTest;
 import QA.Jenkins.SmokeTest;
 import QA.utilities.ReusableMethods;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
 public class TestCase1_2 extends BrowserTestBase {
@@ -28,7 +29,12 @@ public class TestCase1_2 extends BrowserTestBase {
 
 
     }
-
+    @Epic("Account")
+    @Feature("Login")
+    @Story("User able to login")
+    @Severity(value = SeverityLevel.BLOCKER)
+    @Description(value = "user able to login")
+    @Owner(value = "ABDULLAH")
         @SmokeTest
         @Abdullah
         public void NewUserSignupisVisiableTest() {
@@ -66,7 +72,12 @@ public class TestCase1_2 extends BrowserTestBase {
             Assertions.assertEquals("Logged in as "+name,elements.getlogin_signUpPAGE().loggedInAs.getText(),"Verify that 'Logged in as username' is visible");
 
                 }
-
+    @Epic("Account")
+    @Feature("SignUp")
+    @Story("User able to delete account")
+    @Severity(value = SeverityLevel.MINOR)
+    @Description(value = "user able to delete account")
+    @Owner(value = "ABDULLAH")
     @RegressionTest
     void DeleteAccount() {
         NewUserSignupisVisiableTest();
@@ -78,7 +89,12 @@ public class TestCase1_2 extends BrowserTestBase {
         Assertions.assertTrue(elements.getlogin_signUpPAGE().accountDeletedPageBody.getText().contains("ACCOUNT DELETED!"),"Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button");
 
     }
-
+    @Epic("Account")
+    @Feature("Login")
+    @Story("User able to login")
+    @Severity(value = SeverityLevel.BLOCKER)
+    @Description(value = "user able to login")
+    @Owner(value = "ABDULLAH")
         @SmokeTest
         @Abdullah
         public void loginTest_Positive(){
@@ -102,6 +118,12 @@ public class TestCase1_2 extends BrowserTestBase {
 
         @Nested
         class NegativeLoginTest {
+            @Epic("Account")
+            @Feature("Login")
+            @Story("User not able to login")
+            @Severity(value = SeverityLevel.CRITICAL)
+            @Description(value = "user not able to login")
+            @Owner(value = "ABDULLAH")
             @SmokeTest
             @Abdullah
             public void incorrectEmail() {
@@ -118,7 +140,12 @@ public class TestCase1_2 extends BrowserTestBase {
                 //9. Click 'Delete Account' button
                 //10. Verify that 'ACCOUNT DELETED!' is visible
             }
-
+            @Epic("Account")
+            @Feature("Login")
+            @Story("User not able to login")
+            @Severity(value = SeverityLevel.NORMAL)
+            @Description(value = "user not able to login")
+            @Owner(value = "ABDULLAH")
             @SmokeTest
             @Abdullah
             public void incorrectPassword() {
