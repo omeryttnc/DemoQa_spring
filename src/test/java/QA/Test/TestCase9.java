@@ -2,6 +2,7 @@ package QA.Test;
 
 import QA.BrowserTestBase;
 import QA.Enums.LINKS;
+import QA.Jenkins.SmokeTest;
 import QA.utilities.ReusableMethods;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -35,7 +36,7 @@ public class TestCase9 extends BrowserTestBase {
         Assertions.assertEquals(LINKS.HOME.getLinks(), currentUrl, "the link is" + LINKS.HOME.getLinks());
     }
 
-    @Test
+    @SmokeTest
     public void goToProductPage() {
         elements.getHomePage().product_button.click();
         Assertions.assertTrue(elements.getProductsPage().all_products.isDisplayed(), "ALL PRODUCTS IS NOT DISPLAYED");

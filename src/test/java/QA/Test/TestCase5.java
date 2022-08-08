@@ -5,6 +5,7 @@ import QA.Enums.LINKS;
 import QA.Jenkins.Abdullah;
 import QA.Jenkins.RegressionTest;
 import QA.utilities.ReusableMethods;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
 
 
@@ -20,6 +21,12 @@ public class TestCase5 extends BrowserTestBase {
 //6. Enter name and already registered email address
 //7. Click 'Signup' button
 //8. Verify error 'Email Address already exist!' is visible
+@Epic("Account")
+@Feature("Register")
+@Story("User able to register")
+@Severity(value = SeverityLevel.BLOCKER)
+@Description(value = "user able to register")
+@Owner(value = "ABDULLAH")
         @Abdullah
         @RegressionTest
         public void TC05_RegisterWithExistingEmail(){

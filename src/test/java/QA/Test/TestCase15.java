@@ -2,6 +2,8 @@ package QA.Test;
 
 import QA.BrowserTestBase;
 import QA.Enums.USERINFO;
+import QA.Jenkins.Abdullah;
+import QA.Jenkins.SmokeTest;
 import QA.utilities.ReusableMethods;
 import QA.utilities.driver.DriverFactoryImplementation;
 import org.junit.jupiter.api.Assertions;
@@ -13,7 +15,8 @@ public class TestCase15 extends BrowserTestBase {
 
 
 
-    @Test
+    @SmokeTest
+    @Abdullah
     void registerAndPlaceOrder() {
 //1. Launch browser
 //2. Navigate to url 'http://automationexercise.com'
@@ -113,16 +116,5 @@ Assertions.assertEquals(productQuantity,elements.getCartPage().ProductInfoCartPa
         Assertions.assertEquals("Congratulations! Your order has been confirmed!",elements.getCartPage().OrderConfirmed.getText());
 
     }
-    void enumtest(USERINFO userinfo){
-        String email=userinfo.getEmail();
-        String name=userinfo.getUserName();
-        String lat=userinfo.getLat();
-        String password=userinfo.getPassword();
-        System.out.println("password = " + password+ " "+ email+ lat+name);
-    }
 
-    @Test
-    void name() {
-        enumtest(USERINFO.ALICI);
-    }
 }

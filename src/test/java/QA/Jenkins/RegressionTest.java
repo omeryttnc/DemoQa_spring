@@ -11,6 +11,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Tag("regression")
+@Tag("smoke")
 @Test
 public @interface RegressionTest {
 }
