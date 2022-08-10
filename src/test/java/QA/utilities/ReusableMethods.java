@@ -1,17 +1,12 @@
 package QA.utilities;
 
-import QA.BrowserTestBase;
 import QA.Enums.LINKS;
-import QA.Pages.AllElements;
 import QA.utilities.driver.DriverFactoryImplementation;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.sql.Driver;
 
 public class ReusableMethods {
    static Faker faker;
@@ -126,5 +121,15 @@ public class ReusableMethods {
     public static void clickWithJS(WebElement element) {
         ((JavascriptExecutor) DriverFactoryImplementation.getInstance().getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
         ((JavascriptExecutor) DriverFactoryImplementation.getInstance().getDriver()).executeScript("arguments[0].click();", element);
+    }
+
+    /**
+     * altta gelen reklami kapatmak icin resolution i degistirdim
+     */
+    public static void changeResoultion(){
+        Dimension dimension = new Dimension(1200, 720);
+
+        DriverFactoryImplementation.getInstance().getDriver().manage().window().setSize(dimension);
+        ReusableMethods.wait(5);
     }
 }

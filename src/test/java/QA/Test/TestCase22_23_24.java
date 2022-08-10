@@ -44,7 +44,7 @@ public class TestCase22_23_24 extends BrowserTestBase {
 
         Driver.getDriver().get("http://automationexercise.com");
         ReusableMethods.wait(5);
-
+ReusableMethods.changeResoultion();
         actions.moveToElement(elements.getHomePage().recommended_items_title).perform();
         ReusableMethods.wait(2);
         Assertions.assertTrue(elements.getHomePage().recommended_items_title.isDisplayed());
@@ -324,10 +324,8 @@ public class TestCase22_23_24 extends BrowserTestBase {
 
         Driver.getDriver().get("http://automationexercise.com");
         ReusableMethods.wait(5);
-        Dimension dimension = new Dimension(1200, 720);
+        ReusableMethods.changeResoultion();
 
-        Driver.getDriver().manage().window().setSize(dimension);
-        ReusableMethods.wait(5);
         Assertions.assertTrue(elements.getHomePage().Signup_loginButton.isDisplayed());
         elements.getHomePage().Signup_loginButton.click();
         ReusableMethods.wait(5);
