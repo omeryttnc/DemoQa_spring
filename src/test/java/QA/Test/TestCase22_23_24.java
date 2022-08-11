@@ -9,6 +9,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Keys;
 
 import java.io.File;
@@ -27,7 +28,7 @@ public class TestCase22_23_24 extends BrowserTestBase {
     @Feature("Cart Page")
     @Story("TC_22")
     @Severity(value = SeverityLevel.BLOCKER)
-    @Description(value = "user able to delete account")
+    @Description(value = "user able to verify that product is displayed in cart page")
     @Owner(value = "OMER")
     @SmokeTest
     public void tc_22() {
@@ -43,6 +44,7 @@ public class TestCase22_23_24 extends BrowserTestBase {
 
         Driver.getDriver().get("http://automationexercise.com");
         ReusableMethods.wait(5);
+ReusableMethods.changeResoultion();
         actions.moveToElement(elements.getHomePage().recommended_items_title).perform();
         ReusableMethods.wait(2);
         Assertions.assertTrue(elements.getHomePage().recommended_items_title.isDisplayed());
@@ -65,6 +67,8 @@ public class TestCase22_23_24 extends BrowserTestBase {
         Assertions.assertEquals("https://automationexercise.com/view_cart", Driver.getDriver().getCurrentUrl());
 
     }
+
+
 
     @Omer
     @Epic("Purchase")
@@ -269,7 +273,6 @@ public class TestCase22_23_24 extends BrowserTestBase {
     }
 
 
-
     /**
      * removeCart methodu icin yapildi csrftoken ve sessionid verilerini cekiyoruz
      *
@@ -318,8 +321,11 @@ public class TestCase22_23_24 extends BrowserTestBase {
                 "zipcode",
                 "mobile number"
         );
+
         Driver.getDriver().get("http://automationexercise.com");
         ReusableMethods.wait(5);
+        ReusableMethods.changeResoultion();
+
         Assertions.assertTrue(elements.getHomePage().Signup_loginButton.isDisplayed());
         elements.getHomePage().Signup_loginButton.click();
         ReusableMethods.wait(5);
