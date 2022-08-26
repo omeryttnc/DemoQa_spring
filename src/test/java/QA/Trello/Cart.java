@@ -35,4 +35,20 @@ public class Cart  {
 //        Driver.getDriver().get(baseUrl+"cards"+"/"+id);
 //        System.out.println("Driver.getDriver().findElement(By.xpath(\"//body\")).getText() = " + Driver.getDriver().findElement(By.xpath("//body")).getText());
     }
+    @Test
+    void card() {
+
+        response = given()
+                .contentType(ContentType.JSON)
+                .queryParam("idList", TRELLO.Selman.getIdList())
+                .queryParam("key", TRELLO.Selman.getKey())
+                .queryParam("token", TRELLO.Selman.getToken())
+                .queryParam("name", faker.name().firstName())
+                .post(baseUrl+"/1/cards");
+
+
+
+
+    }
+
 }
