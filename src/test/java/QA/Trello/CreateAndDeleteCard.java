@@ -29,13 +29,15 @@ public class CreateAndDeleteCard {
 
                 when().post(baseUrl + "/1/cards");
 
-        JsonPath js = response.jsonPath();
+        JsonPath jsonPath = response.jsonPath();
         Assert.assertEquals(200, response.statusCode());
-        WriteToTxt.saveTitle("idNumbers", js.getString("id"));
+        Assert.assertEquals(null, jsonPath.getString("badges.trello.card"));
+
+        WriteToTxt.saveTitle("idNumbers", jsonPath.getString("id"));
 
     }
 
-    @AfterEach
+   @AfterEach
     public void deleteCard() { // delete card with id number
 
         given().
@@ -46,9 +48,8 @@ public class CreateAndDeleteCard {
                 queryParam("token", TRELLO.USER.YUSUF.getToken()).
                 delete(baseUrl + "/1/cards/{id}");
 
-        //Assert.assertEquals(true, response.asString().equals(empty()));
+        Assert.assertEquals(false, response.asString().equals(empty()));
 
-        System.out.println(response.asString());
 
     }
 
