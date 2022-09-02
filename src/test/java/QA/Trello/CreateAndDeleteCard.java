@@ -25,7 +25,7 @@ public class CreateAndDeleteCard {
                 queryParam("idList", TRELLO.CARTS.YUSUFlISTCARD.getIdList()).
                 queryParam("key", TRELLO.USER.YUSUF.getKey()).
                 queryParam("token", TRELLO.USER.YUSUF.getToken()).
-                queryParam("name", "Yusuf card is created").queryParam("desc", "this card is just new created").
+                queryParam("name", "Create and delete a card").queryParam("desc", "this card is just new created").
 
                 when().post(baseUrl + "/1/cards");
 
@@ -40,15 +40,18 @@ public class CreateAndDeleteCard {
    @AfterEach
     public void deleteCard() { // delete card with id number
 
-        given().
+        response=given().
                 contentType(ContentType.JSON).
                 pathParam("id", ReadTxt.returntitle("idNumbers")).
-                queryParam("idList", TRELLO.CARTS.YUSUFlISTCARD.getIdList()).
                 queryParam("key", TRELLO.USER.YUSUF.getKey()).
                 queryParam("token", TRELLO.USER.YUSUF.getToken()).
                 delete(baseUrl + "/1/cards/{id}");
+       System.out.println("*");
+                response.prettyPrint();
 
-        Assert.assertEquals(false, response.asString().equals(empty()));
+
+        //Assert.assertEquals(true, response.asString().equals(" \"limits\": {\n" +
+              
 
 
     }
