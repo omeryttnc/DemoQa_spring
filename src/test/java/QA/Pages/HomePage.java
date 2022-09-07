@@ -41,7 +41,7 @@ public class HomePage {
     @FindBy(xpath = "(//a[@data-product-id=\"1\"])[1]")
     public WebElement first_product;
 
-    @FindBy(xpath = "(git")
+    @FindBy(xpath = "(//a[@data-product-id=\"1\"])[2]")
     public WebElement first_product_pop;
 
     @FindBy(css = ":last-of-type>h2.title")
