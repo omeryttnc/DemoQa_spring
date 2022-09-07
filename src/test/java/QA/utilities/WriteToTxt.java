@@ -10,7 +10,7 @@ public class WriteToTxt {
 
       public static void saveTitle(String fileName, String title){
         try {
-            FileWriter fileWriter = new FileWriter(fileName, false);
+            FileWriter fileWriter = new FileWriter(fileName, true);
             BufferedWriter writer  = new BufferedWriter( fileWriter);
                 writer.append(title);
             writer.close();
