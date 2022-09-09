@@ -19,7 +19,7 @@ public class GetCheckItemsOnACard  {
     @Test
     public void getCheckItemsOnACard(){
         response=given().contentType(ContentType.JSON)
-                .queryParam("id", TRELLO.CARTS.YUSUFlISTCARD.getId())
+                //.queryParam("id", TRELLO.CARTS.YUSUFlISTCARD.getId())
                 .queryParam("key", TRELLO.USER.YUSUF.getKey())
                 .queryParam("token", TRELLO.USER.YUSUF.getToken())
                 .when().get(baseUrl + "/1/cards/631a62f891f867018228d293/checkItemStates?key=APIKey&token=APIToken");
@@ -33,6 +33,7 @@ public class GetCheckItemsOnACard  {
         System.out.println(jsonPath.getList("idCheckItem").get(5));
         Assert.assertEquals("631a633e5cac0103685df3a3", jsonPath.getList("idCheckItem").get(0));
         Assert.assertEquals("complete", jsonPath.getList("state").get(0));
+
 
     }
 
