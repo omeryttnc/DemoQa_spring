@@ -29,7 +29,7 @@ public enum TRELLO {
 
     public enum CARTS{
         LISTE1KART1("630aaa641b44030076e95842","63093a7966409f009c7bbaba","63093a72ab1ebe0200f2d270"),
-        YUSUFlISTCARD("630952865a58e800d22850dd", "6309394e058aea01446bde63", "630953347b78ee0031da7ed2")
+        YUSUFlISTCARD("631a62f891f867018228d293", "6309394e058aea01446bde63", "6309394e058aea01446bde63")
         ;
         private String id,idBoard,idList;
 
