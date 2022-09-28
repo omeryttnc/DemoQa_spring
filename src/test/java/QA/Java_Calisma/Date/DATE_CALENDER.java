@@ -1,4 +1,4 @@
-package QA.Java_Calisma;
+package QA.Java_Calisma.Date;
 
 import java.text.DateFormat;
 import java.text.ParseException;
